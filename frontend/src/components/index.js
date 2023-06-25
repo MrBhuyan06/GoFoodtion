@@ -4,3 +4,8 @@ export { default as Body } from "./Body.js";
 export { default as Carts } from "./Carts.js";
 export { default as About } from "./About.js";
 export { default as Menu } from "./Menu.js";
+export { default as DinningOut } from "./DinningOut.js";
+export { default as NightLife } from "./NightLife.js";
+export { default as TapListFeature } from "./TapListFeature.js";
+export { default as TapFeature } from "./TapFeature.js";
+export { default as DeliveryCollection } from "./DeliveryCollection.js";

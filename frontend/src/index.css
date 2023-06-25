@@ -11,6 +11,24 @@ body {
 html,
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+/* .slick-prev {
+  background: #000;
+}
+.slick-arrow {
+  background: #000000;
+  color: aqua;
+} */
+
+div .slick-prev:before {
+  background: #ffff;
+  color: #1f1f1f;
+}
+
+div .slick-next:before {
+  background: #ffff;
+  color: #1f1f1f;
 }
 @tailwind base;
 @tailwind components;

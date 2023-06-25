@@ -4,7 +4,17 @@ import React from "react";
 import ReactDOM from "react-dom/client.js";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
-import { Carts, Menu, About, Body } from "./components";
+
+import {
+  Carts,
+  Menu,
+  About,
+  Body,
+  NightLife,
+  DinningOut,
+  TapFeature,
+  TapOption,
+} from "./components";
 
 const appRouter = createBrowserRouter([
   {
@@ -26,6 +36,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu />,
+      },
+      {
+        path: "/booking/:optionid",
+        element: <TapFeature />,
       },
     ],
   },
