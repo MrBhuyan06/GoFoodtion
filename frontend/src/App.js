@@ -1,9 +1,14 @@
+import { Header, Fotter } from "./components";
+import { Outlet } from "react-router-dom";
+
 const App = () => {
   return (
     <>
-      <header className="flex justify-center items-center w-screen h-screen">
-        <h1>App</h1>
-      </header>
+      <div className="w-screen h-auto flex-col  ">
+        <Header />
+        <Outlet />
+        <Fotter />
+      </div>
     </>
   );
 };
