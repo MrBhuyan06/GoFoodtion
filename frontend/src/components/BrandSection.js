@@ -19,12 +19,13 @@ const BrandSection = () => {
       <div className="text-headingColor text-3xl text-bold mb-8 ml-4 ">
         Top Brands for You
       </div>
-
-      <Slider {...settings} className="">
-        {TOP_BRAND.map((item, i) => {
-          return <BrandItems {...item} key={i} />;
-        })}
-      </Slider>
+      <div className=" w-full h-full  px-20  py-2">
+        <Slider {...settings} className="">
+          {TOP_BRAND.map((item, i) => {
+            return <BrandItems {...item} key={i} />;
+          })}
+        </Slider>
+      </div>
     </div>
   );
 };

@@ -124,20 +124,7 @@ export const COLLECTIONS_DINING = [
     title: "23 Rooftop Places",
     places: "24 Places",
   },
-  {
-    id: 1,
-    cover:
-      "https://b.zmtcdn.com/data/pictures/0/20540040/d09b6dcc94b9d77cac289b33a4e8242c.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*",
-    title: "23 Rooftop Places",
-    places: "24 Places",
-  },
-  {
-    id: 1,
-    cover:
-      "https://b.zmtcdn.com/data/pictures/0/20540040/d09b6dcc94b9d77cac289b33a4e8242c.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*",
-    title: "23 Rooftop Places",
-    places: "24 Places",
-  },
+
   {
     id: 2,
     cover:
@@ -148,7 +135,7 @@ export const COLLECTIONS_DINING = [
   {
     id: 3,
     cover:
-      "hhttps://b.zmtcdn.com/data/pictures/0/18379660/3cac9e0114bd85c72a7c1dabf394f7b4.jpg?output-format=webp&fit=around|300:273&crop=300:273;*,*",
+      "https://b.zmtcdn.com/data/pictures/0/18379660/3cac9e0114bd85c72a7c1dabf394f7b4.jpg?output-format=webp&fit=around|300:273&crop=300:273;*,*",
     title: "10 Picturesque Cafes",
     places: "9 places",
   },
@@ -162,10 +149,11 @@ export const COLLECTIONS_DINING = [
   {
     id: 5,
     cover:
-      "https://b.zmtcdn.com/data/pictures/chains/8/20692388/e210e48b47ec9ce36f07cdf7960a52d9.jpg?output-format=webp&fit=around|300:273&crop=300:273;*,*",
-    title: "15 New Restaurents",
+      "https://b.zmtcdn.com/data/pictures/3/20713503/01c6dc548b708bda631dd3cbd5ab15bb.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*",
+    title: "15 Finest MicroBreweries",
     places: "13 places",
   },
+
   {
     id: 6,
     cover:

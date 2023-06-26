@@ -28,7 +28,7 @@ const TapOption = () => {
     nightlife: "",
   });
   return (
-    <div className="tap-option container border-4 mx-auto p-4 flex items-center justify-center gap-4   ">
+    <div className="tap-option container  mx-auto p-4 flex items-center justify-center gap-4   ">
       {/* {tabs.map((tab, i) => {
         return (
           <Link to={`/body/${tab.id}`} key={i}>
