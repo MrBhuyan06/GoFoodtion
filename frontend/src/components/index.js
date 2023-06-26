@@ -9,3 +9,6 @@ export { default as NightLife } from "./NightLife.js";
 export { default as TapListFeature } from "./TapListFeature.js";
 export { default as TapFeature } from "./TapFeature.js";
 export { default as DeliveryCollection } from "./DeliveryCollection.js";
+export { default as FilterComponets } from "./FilterComponets.js";
+export { default as SearchBar } from "./SearchBar.js";
+export { default as Button } from "./Button.js";

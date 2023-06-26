@@ -7,6 +7,7 @@ import NextArrow from "./nextArrow.js";
 import PrevArrow from "./PrevArrow.js";
 import CollectionCards from "./CollectionCards.js";
 import { DELIVERY_ITEMS } from "../utils/constant.js";
+import { FilterComponets } from "./index.js";
 
 const settings = {
   //   dots: true,
@@ -37,6 +38,9 @@ const TapFeature = () => {
           </Slider>
         </div>
       </section>
+      <div className="search-filter-components">
+        <FilterComponets />
+      </div>
     </div>
   );
 };
