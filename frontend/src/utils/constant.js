@@ -248,7 +248,7 @@ export const RESTAURENT_DINING = [
       resId: 19264693,
       name: "Hard Rock Cafe",
       image: {
-        url: "https://b.zmtcdn.com/data/pictures/3/19264693/7994ea3bb0211da27dd46d07a2b2d541_featured_v2.jpg",
+        url: "https://b.zmtcdn.com/data/pictures/7/19672427/fab0f327a0193957ee122f8c72c4d2f9_featured_v2.jpg",
         urlWithParams:
           "https://b.zmtcdn.com/data/pictures/3/19264693/7994ea3bb0211da27dd46d07a2b2d541_featured_v2.jpg?fit=around%7C108%3A108&crop=108%3A108%3B%2A%2C%2A",
       },
