@@ -21,7 +21,7 @@ const SearchBar = (props) => {
         <AiOutlineSearch className="search-icon" />
       </div>
       <button
-        className="btn btn-primary bg-orange-300"
+        className="btn btn-primary bg-orange-400 px-4 rounded-lg hover:bg-orange-300 transition-all ease-in-out cursor-pointer text-headingColor text-lg font-semibold"
         // onClick={() => {
         //   console.log("press");
         //   console.log(props.value, props.restaurentList);

@@ -12,3 +12,4 @@ export { default as DeliveryCollection } from "./DeliveryCollection.js";
 export { default as FilterComponets } from "./FilterComponets.js";
 export { default as SearchBar } from "./SearchBar.js";
 export { default as Button } from "./Button.js";
+export { default as FeatureCard } from "./FeatureCard";

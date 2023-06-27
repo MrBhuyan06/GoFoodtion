@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import TapOption from "./TapOption.js";
-import { COLLECTIONS_DINING, DININGCOLLECTION } from "../utils/constant.js";
+import {
+  COLLECTIONS_DINING,
+  DININGCOLLECTION,
+  RESTAURENT_DINING,
+} from "../utils/constant.js";
 import Slider from "react-slick";
 import NextArrow from "./nextArrow.js";
 import PrevArrow from "./PrevArrow.js";
 import CollectionCards from "./CollectionCards.js";
 import { DELIVERY_ITEMS } from "../utils/constant.js";
-import { FilterComponets } from "./index.js";
+import { FilterComponets, FeatureCard } from "./index.js";
 
 const settings = {
   //   dots: true,
@@ -19,8 +23,27 @@ const settings = {
 };
 
 const TapFeature = () => {
+  const [allResTaurent, SetAllRestaurent] = useState([]);
+  const [filterResTaurent, SetFilterRestaurent] = useState([]);
+
+  //Fake Api call for Data
+  useEffect(() => {
+    getRestaurent();
+    console.log("useEffect");
+  }, []);
+
+  const getRestaurent = function () {
+    SetAllRestaurent(RESTAURENT_DINING);
+    SetFilterRestaurent(RESTAURENT_DINING);
+  };
+
   const { optionid } = useParams();
-  return (
+  console.log(filterResTaurent);
+  console.log(RESTAURENT_DINING);
+  console.log("render");
+  return allResTaurent.length === 0 ? (
+    <h1>Loading....</h1>
+  ) : (
     <div>
       <h2 className="text-headingColor text-5xl  font-extrabold text-center container  mb-2 mx-auto mt-28">
         {optionid}
@@ -40,6 +63,13 @@ const TapFeature = () => {
       </section>
       <div className="search-filter-components">
         <FilterComponets />
+        <main className="w-screen border-4 px-16 p-6 ">
+          <div className="container border-4 min-h-screen">
+            {filterResTaurent.map((res, i) => {
+              return <FeatureCard {...res?.info} key={i} />;
+            })}
+          </div>
+        </main>
       </div>
     </div>
   );
