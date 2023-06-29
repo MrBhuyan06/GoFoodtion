@@ -5,3 +5,10 @@ export const searchRestaurent = function (seachTxt, restaurents) {
   });
   return filterRestaurentResult;
 };
+
+export const ratingRestaurent = function (restaurents) {
+  const ratingRestaurentResult = restaurents.filter((res) => {
+    return Number(res?.info?.rating?.rating_text) >= 4.5;
+  });
+  return ratingRestaurentResult;
+};

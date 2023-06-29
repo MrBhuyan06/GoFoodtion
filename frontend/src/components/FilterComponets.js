@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, SearchBar } from "./index.js";
+import { ratingRestaurent } from "../utils/helper.js";
 
 const FilterComponets = (props) => {
   // console.log(props.SetAllRestaurentDinning);
@@ -23,7 +24,18 @@ const FilterComponets = (props) => {
         updateFilterRestaurent={updateFilterRestaurent}
         // updateFilterRestaurentNight={updateFilterRestaurentNight}
       />
-      <Button name="Rating 4.0 +" />
+      {/* <Button name="Rating 4.0 +" 
+      /> */}
+      <button
+        className=" ml-8 btn btn-primary bg-orange-400 px-2 py-1  rounded-lg hover:bg-orange-300 transition-all ease-in-out cursor-pointer text-headingColor text-md font-semibold"
+        onClick={() => {
+          const ratingResult = ratingRestaurent(restaurentList);
+          console.log(ratingResult);
+          updateFilterRestaurent(ratingResult);
+        }}
+      >
+        Rating 4.0 +
+      </button>
     </div>
   );
 };
