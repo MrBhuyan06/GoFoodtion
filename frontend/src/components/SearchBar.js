@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 // import { searchRestuarent } from "../utils/helper.js";
-import { searchRestaurent } from "../utils/helper.js";
-
+import { searchRestaurent, searchRestaurentSWiggy } from "../utils/helper.js";
+import { useParams } from "react-router-dom";
 const SearchBar = (props) => {
   const {
     handleChange,
@@ -13,6 +13,8 @@ const SearchBar = (props) => {
     // updateFilterRestaurentNight
   } = props;
   // console.log(props);
+  const { optionid } = useParams();
+  console.log(optionid);
   // console.log(handleChange);
   // console.log(restaurentList);
   // const { optionid } = useParams();
@@ -28,9 +30,20 @@ const SearchBar = (props) => {
             //   props.handleChange(e.target.value);
             handleChange(e.target.value);
             console.log("press");
-            const searchResault = searchRestaurent(value, restaurentList);
-            console.log(searchResault);
-            updateFilterRestaurent(searchResault);
+            if (optionid) {
+              console.log("press");
+              const searchResault = searchRestaurent(value, restaurentList);
+              console.log(searchResault);
+              updateFilterRestaurent(searchResault);
+            } else {
+              const searchResault = searchRestaurentSWiggy(
+                value,
+                restaurentList
+              );
+              console.log(searchResault);
+              console.log("enter");
+              updateFilterRestaurent(searchResault);
+            }
           }}
           value={value}
         />
@@ -46,13 +59,17 @@ const SearchBar = (props) => {
         //   props.updateFilterRestaurent(data);
         // }}
         onClick={() => {
-          console.log("press");
-          const searchResault = searchRestaurent(value, restaurentList);
-          console.log(searchResault);
-          updateFilterRestaurent(searchResault);
-          // optionid.includes("Nightlife")
-          //   ? updateFilterRestaurent(searchResault)
-          //   : updateFilterRestaurent(searchResault);
+          if (optionid) {
+            console.log("press");
+            const searchResault = searchRestaurent(value, restaurentList);
+            console.log(searchResault);
+            updateFilterRestaurent(searchResault);
+          } else {
+            const searchResault = searchRestaurentSWiggy(value, restaurentList);
+            console.log(searchResault);
+            console.log("enter");
+            updateFilterRestaurent(searchResault);
+          }
         }}
       >
         Search

@@ -5,6 +5,13 @@ export const searchRestaurent = function (seachTxt, restaurents) {
   });
   return filterRestaurentResult;
 };
+export const searchRestaurentSWiggy = function (seachTxt, restaurents) {
+  console.log(restaurents);
+  const filterRestaurentResult = restaurents.filter((res) => {
+    return res?.data?.name.toLowerCase().includes(seachTxt.toLowerCase());
+  });
+  return filterRestaurentResult;
+};
 
 export const ratingRestaurent = function (restaurents) {
   const ratingRestaurentResult = restaurents.filter((res) => {
