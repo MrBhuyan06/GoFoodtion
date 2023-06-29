@@ -10,7 +10,7 @@ const RestaurentCard = ({
   area,
 }) => {
   return (
-    <div className="max-w-[308px] h-[350px]  p-2  m-2 rounded-lg bg-transparent  hover:bg-[#ffff] hover:border-2 hover:shadow-md transition-all ease cursor-pointer ">
+    <div className="max-w-[308px] h-[350px]  p-2  m-2 rounded-lg bg-transparent    hover:bg-[#ffff] hover:shadow-lg transition-all ease-in-out cursor-pointer ">
       <img
         src={`${SWIGGY_IMG_CDN}${cloudinaryImageId}`}
         className="rounded-lg object-cover w-[280px] h-[200px] "
@@ -18,7 +18,7 @@ const RestaurentCard = ({
       />
 
       <div className="w-full 2 items-center mt-2 p-2 flex justify-between">
-        <p className="text-headingColor text-lg font-semibold text-ellipsis">
+        <p className="text-headingColor  text-lg font-semibold text-ellipsis">
           {name}
         </p>
         <p className="text-white flex items-center font-semibold  px-2 bg-green-700 rounded-lg">
@@ -26,14 +26,16 @@ const RestaurentCard = ({
           <MdGrade />
         </p>
       </div>
-      <div className="w-full items-center mt-2 px-2 flex justify-between">
-        <p className="text-lighttextGray text-md  text-ellipsis">{cuisines}</p>
-        <p className="text-lighttextGray 2 text-md font-semibold text-ellipsis">
-          {costForTwoString}
+      <div className="w-full items-center mt-2 px-2 flex text-ellipsis justify-between">
+        <p className="text-lighttextGray text-sm  max-w-[280px] overflow-hidden ">
+          {cuisines.join(",")}
         </p>
       </div>
-      <div className=" mt-2 px-2 ">
+      <div className=" mt-2 px-2 flex justify-between">
         <p className="text-lighttextGray text-md text-ellipsis">{area}</p>
+        <p className="text-lighttextGray 2 text-md w-1/2 font-semibold text-ellipsis">
+          {costForTwoString}
+        </p>
       </div>
     </div>
   );
