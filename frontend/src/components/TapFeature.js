@@ -30,6 +30,23 @@ const TapFeature = () => {
   const [allResTaurentNight, SetAllRestaurentNight] = useState([]);
   const [filterResTaurentNight, SetFilterRestaurenNight] = useState([]);
 
+  const [seacrhTxt, setSearchTxt] = useState("Namaste");
+
+  const { optionid } = useParams();
+  console.log(optionid);
+
+  const handleChange = (seacrhTxt) => setSearchTxt(seacrhTxt);
+  const updateFilterRestaurent = (allResTaurent) => {
+    optionid.includes("Nightlife")
+      ? SetFilterRestaurenNight(allResTaurent)
+      : SetFilterRestaurentDinning(allResTaurent);
+    // SetFilterRestaurentDinning(allResTaurentDinnig);
+  };
+  // SetFilterRestaurenNight(allResTaurentNight);
+  // const updateFilterRestaurentNight = (allResTaurentDinnig) =>
+  //   SetFilterRestaurenNight(allResTaurentNight);
+  // // SetFilterRestaurenNight(allResTaurentNight);
+
   //Fake Api call for Data
   useEffect(() => {
     getRestaurent();
@@ -40,16 +57,15 @@ const TapFeature = () => {
     SetAllRestaurentDinning(RESTAURENT_DINING);
     SetFilterRestaurentDinning(RESTAURENT_DINING);
     SetAllRestaurentNight(RESTAURENT_NIGHTLIFE);
-    SetAllRestaurentNight(RESTAURENT_NIGHTLIFE);
+    SetFilterRestaurenNight(RESTAURENT_NIGHTLIFE);
   };
-
-  const { optionid } = useParams();
-  console.log(optionid);
 
   // Dinning Out
   // console.log(filterResTaurent);
   // console.log(RESTAURENT_DINING);
   console.log("render");
+  console.log(seacrhTxt);
+  console.log(allResTaurentDinnig);
   return optionid.includes("Nightlife") ? (
     <div>
       <h2 className="text-headingColor text-5xl  font-extrabold text-center container  mb-2 mx-auto mt-28">
@@ -69,13 +85,26 @@ const TapFeature = () => {
         </div>
       </section>
       <div className="search-filter-components">
-        <FilterComponets />
+        <FilterComponets
+          placeHolder={"Search Restaurent"}
+          handleChange={handleChange}
+          value={seacrhTxt}
+          restaurentList={allResTaurentNight}
+          updateFilterRestaurent={updateFilterRestaurent}
+          // updateFilterRestaurentNight={updateFilterRestaurentNight}
+        />
         <main className="w-screen border-4 px-16 p-6 ">
           <div className="container border-4 min-h-screen flex flex-wrap justify-items-center items-center justify-center gap-4 ">
-            {filterResTaurentNight.map((res, i) => {
-              console.log(res);
-              return <FeatureCard {...res?.info} key={res.info.resId} />;
-            })}
+            {filterResTaurentNight.length === 0 ? (
+              <h1 className=" text-headingColor  self-start">
+                No Restaurent Found
+              </h1>
+            ) : (
+              filterResTaurentNight.map((res, i) => {
+                console.log(res);
+                return <FeatureCard {...res?.info} key={res.info.resId} />;
+              })
+            )}
           </div>
         </main>
       </div>
@@ -99,13 +128,25 @@ const TapFeature = () => {
         </div>
       </section>
       <div className="search-filter-components">
-        <FilterComponets />
+        <FilterComponets
+          placeHolder={"Search Restaurent"}
+          handleChange={handleChange}
+          value={seacrhTxt}
+          restaurentList={allResTaurentDinnig}
+          updateFilterRestaurent={updateFilterRestaurent}
+        />
         <main className="w-screen border-4 px-16 p-6 ">
           <div className="container border-4 min-h-screen flex flex-wrap justify-items-center items-center justify-center gap-4 ">
-            {filterResTaurentDinning.map((res, i) => {
-              console.log(res);
-              return <FeatureCard {...res?.info} key={res.info.resId} />;
-            })}
+            {filterResTaurentDinning.length === 0 ? (
+              <h1 className=" text-headingColor  self-start">
+                No Restaurent Found
+              </h1>
+            ) : (
+              filterResTaurentDinning.map((res, i) => {
+                console.log(res);
+                return <FeatureCard {...res?.info} key={res.info.resId} />;
+              })
+            )}
           </div>
         </main>
       </div>

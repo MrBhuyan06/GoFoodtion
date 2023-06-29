@@ -1,11 +1,21 @@
 import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-// import { searchRestuarent } from "../utlity/helperfunction.js";
+// import { searchRestuarent } from "../utils/helper.js";
+import { searchRestaurent } from "../utils/helper.js";
 
 const SearchBar = (props) => {
-  //declare the state for searchText
+  const {
+    handleChange,
+    placeHolder,
+    value,
+    restaurentList,
+    updateFilterRestaurent,
+    // updateFilterRestaurentNight
+  } = props;
   // console.log(props);
   // console.log(handleChange);
+  // console.log(restaurentList);
+  // const { optionid } = useParams();
   return (
     <div className="search-bar flex gap-2 ">
       <div className="search flex  items-center bg-primary rounded-lg  border-2 w-300 h-8 px-2">
@@ -13,10 +23,16 @@ const SearchBar = (props) => {
           className="bg-transparent  border-0 w-full  "
           type="search"
           // value={props.value}
-          placeholder="Search Restaurent"
+          placeholder={placeHolder}
           onChange={(e) => {
             //   props.handleChange(e.target.value);
+            handleChange(e.target.value);
+            console.log("press");
+            const searchResault = searchRestaurent(value, restaurentList);
+            console.log(searchResault);
+            updateFilterRestaurent(searchResault);
           }}
+          value={value}
         />
         <AiOutlineSearch className="search-icon" />
       </div>
@@ -29,6 +45,15 @@ const SearchBar = (props) => {
         //   console.log(data);
         //   props.updateFilterRestaurent(data);
         // }}
+        onClick={() => {
+          console.log("press");
+          const searchResault = searchRestaurent(value, restaurentList);
+          console.log(searchResault);
+          updateFilterRestaurent(searchResault);
+          // optionid.includes("Nightlife")
+          //   ? updateFilterRestaurent(searchResault)
+          //   : updateFilterRestaurent(searchResault);
+        }}
       >
         Search
       </button>
