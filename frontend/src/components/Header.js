@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LOGO from "./img/logo-1.png";
-import userprofile from "./img/avatar.png";
-
+import LOGO from "../img/logo-1.png";
+import userprofile from "../img/avatar.png";
+import { motion } from "framer-motion";
 import { MdShoppingCartCheckout } from "react-icons/md";
 
 const Header = () => {
@@ -10,10 +10,10 @@ const Header = () => {
     <div className=" fixed top-0 right-0  z-50 w-screen bg-primary  p-6 px-16    ">
       {/* Desktop and tablet */}
       <header className="hidden md:flex w-full h-full items-center justify-between  ">
-        <div className=" flex items-center gap-2">
+        <Link to={"/"} className=" flex items-center gap-2">
           <img src={LOGO} alt="log0" className="w-10 object-cover" />
           <p className="text-headingColor text-xl font-bold">Go Foodition</p>
-        </div>
+        </Link>
         <div className="flex  gap-8 items-center">
           <ul className="flex  gap-8 items-center   ">
             <Link
@@ -42,9 +42,10 @@ const Header = () => {
             </Link>
           </ul>
 
-          <img
+          <motion.img
+            whileTap={{ scale: 0.6 }}
             src={userprofile}
-            className="w-10 min-w-[40px] min-h-40px drop-shadow-xl"
+            className="w-10 min-w-[40px] min-h-40px drop-shadow-xl cursor-pointer"
             alt="userprofile"
           />
         </div>

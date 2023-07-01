@@ -14,6 +14,8 @@ import {
   DinningOut,
   TapFeature,
   TapOption,
+  MenuCreateContainer,
+  MenuContainer,
 } from "./components";
 
 const appRouter = createBrowserRouter([
@@ -36,6 +38,16 @@ const appRouter = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu />,
+        children: [
+          {
+            path: "createitem",
+            element: <MenuCreateContainer />,
+          },
+          {
+            path: "",
+            element: <MenuContainer />,
+          },
+        ],
       },
       {
         path: "/booking/:optionid",
