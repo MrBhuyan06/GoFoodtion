@@ -4,8 +4,23 @@ import LOGO from "../img/logo-1.png";
 import userprofile from "../img/avatar.png";
 import { motion } from "framer-motion";
 import { MdShoppingCartCheckout } from "react-icons/md";
-
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { app } from "../firebase.config.js";
+import { useStateValue } from "../context/StateProvider.js";
 const Header = () => {
+  const firebaseAuth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  const [{ user }, dispatch] = useStateValue();
+  const login = async () => {
+    const {
+      user: { refreshToken, providerData },
+    } = await signInWithPopup(firebaseAuth, provider);
+    dispatch({
+      type: actionType.SET_USER,
+      user: providerData[0],
+    });
+    localStorage.setItem("user", JSON.stringify(providerData[0]));
+  };
   return (
     <div className=" fixed top-0 right-0  z-50 w-screen bg-primary  p-6 px-16    ">
       {/* Desktop and tablet */}
@@ -42,12 +57,15 @@ const Header = () => {
             </Link>
           </ul>
 
-          <motion.img
-            whileTap={{ scale: 0.6 }}
-            src={userprofile}
-            className="w-10 min-w-[40px] min-h-40px drop-shadow-xl cursor-pointer"
-            alt="userprofile"
-          />
+          <div className="relative">
+            <motion.img
+              whileTap={{ scale: 0.6 }}
+              src={userprofile}
+              className="w-10 min-w-[40px] min-h-40px drop-shadow-xl cursor-pointer"
+              alt="userprofile"
+              onClick={login}
+            />
+          </div>
         </div>
       </header>
 
