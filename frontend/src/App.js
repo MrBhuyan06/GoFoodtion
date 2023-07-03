@@ -8,7 +8,7 @@ import reducer from "./context/reducers.js";
 const App = () => {
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <div className="w-screen h-auto flex-col  ">
           <Header />
           <Outlet />

@@ -45,6 +45,13 @@ div .slick-next:before {
   position: absolute;
   bottom: 0;
 }
+.row-2 {
+  grid-row: span 2;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

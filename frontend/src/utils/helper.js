@@ -19,3 +19,12 @@ export const ratingRestaurent = function (restaurents) {
   });
   return ratingRestaurentResult;
 };
+
+export const fetchUser = function () {
+  const userInfo =
+    localStorage.getItem("user") !== "undefine"
+      ? JSON.parse(localStorage.getItem("user"))
+      : localStorage.clear();
+
+  return userInfo;
+};
