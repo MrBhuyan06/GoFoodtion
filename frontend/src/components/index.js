@@ -15,3 +15,6 @@ export { default as Button } from "./Button.js";
 export { default as FeatureCard } from "./FeatureCard";
 export { default as MenuContainer } from "./MenuContainer.js";
 export { default as MenuCreateContainer } from "./MenuCreateContainer.js";
+export { default as RestaurentDetailsMain } from "./RestaurentDetailsMain.js";
+export { default as RestaurentHeaderInfo } from "./RestaurentHeaderInfo.js";
+export { default as RestaurentDetailsPage } from "./RestaurentDetailPage.js";
