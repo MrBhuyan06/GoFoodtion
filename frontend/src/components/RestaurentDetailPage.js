@@ -7,12 +7,14 @@ const RestaurentDetailPage = () => {
   const { resId } = useParams();
   const restaurentMenu = useRestaurent(resId);
   console.log(restaurentMenu);
-  const { info, menu } = restaurentMenu;
-  console.log(info, menu);
-  return (
+  // const { info, menu } = restaurentMenu;
+  // console.log(info, menu);
+  return !restaurentMenu ? (
+    <h1 className="mt-28">Loading.......</h1>
+  ) : (
     <div className="mt-28 w-full h-screen border-2">
-      <h1>{resId}</h1>
-      <RestaurentHeaderInfo />
+      <h1 className="">{resId}</h1>
+      <RestaurentHeaderInfo {...restaurentMenu.info} />
       <RestaurentDetailsMain />
     </div>
   );

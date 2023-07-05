@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TapOption from "./TapOption.js";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import DeliveryCollection from "./DeliveryCollection.js";
 import BrandSection from "./BrandSection.js";
 import { FilterComponets, FeatureCard } from "./index.js";
@@ -54,7 +54,12 @@ const Body = () => {
             ) : (
               filterRestaurent.map((res, i) => {
                 console.log(res);
-                return <RestaurentCard {...res?.data} key={res.data.id} />;
+                return (
+                  <Link to={`restaurent/${res.data.id}`} key={res.data.id}>
+                    <RestaurentCard {...res?.data} />
+                  </Link>
+                );
+                return;
               })
             )}
           </div>
