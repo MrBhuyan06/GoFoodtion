@@ -12,10 +12,9 @@ const RestaurentDetailPage = () => {
   return !restaurentMenu ? (
     <h1 className="mt-28">Loading.......</h1>
   ) : (
-    <div className="mt-28 w-full h-screen border-2">
-      <h1 className="">{resId}</h1>
+    <div className="mt-28 w-full  border-2">
       <RestaurentHeaderInfo {...restaurentMenu.info} />
-      <RestaurentDetailsMain />
+      <RestaurentDetailsMain menu={restaurentMenu.menu} />
     </div>
   );
 };
