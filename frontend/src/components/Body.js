@@ -7,6 +7,7 @@ import { FilterComponets, FeatureCard } from "./index.js";
 import { SWIGGY_RES_API } from "../utils/constant.js";
 import RestaurentCard from "./RestaurentCard.js";
 import SearchBarRestaurent from "./SearchBarRestaurent.js";
+import { useStateValue } from "../context/StateProvider.js";
 const Body = () => {
   const [searchText, setSearchText] = useState("Namaste");
   const [allRestaurent, setAllRestaurent] = useState([]);
@@ -16,6 +17,9 @@ const Body = () => {
   const updateFilterRestaurent = (allResTaurent) => {
     setFilterRestaurent(allResTaurent);
   };
+  const [user] = useStateValue();
+  console.log(user);
+  console.log(useStateValue());
 
   useEffect(() => {
     getRestaurent();
