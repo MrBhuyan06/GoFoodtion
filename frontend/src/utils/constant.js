@@ -4,24 +4,36 @@ export const DELIVERY_ITEMS = [
     tittle: "pizza",
     cover:
       "https://b.zmtcdn.com/data/o2_assets/d0bd7c9405ac87f6aa65e31fe55800941632716575.png",
+    inStock: 7,
+    rating: 3,
+    fastDelivery: false,
   },
   {
     id: 2,
     tittle: "Shawarma",
     cover:
       "https://b.zmtcdn.com/data/o2_assets/2f34540e0b12058f5f8b9390c3a3fb4a1648972281.png",
+    inStock: 3,
+    rating: 4,
+    fastDelivery: true,
   },
   {
     id: 3,
     tittle: "Chicken",
     cover:
       "https://b.zmtcdn.com/data/dish_images/197987b7ebcd1ee08f8c25ea4e77e20f1634731334.png",
+    inStock: 0,
+    rating: 2,
+    fastDelivery: true,
   },
   {
     id: 4,
     tittle: "Burger",
     cover:
       "https://b.zmtcdn.com/data/dish_images/ccb7dc2ba2b054419f805da7f05704471634886169.png",
+    inStock: 2,
+    rating: 4,
+    fastDelivery: false,
   },
 
   {
@@ -29,30 +41,45 @@ export const DELIVERY_ITEMS = [
     tittle: "Fried Rice",
     cover:
       "https://b.zmtcdn.com/data/o2_assets/e444ade83eb22360b6ca79e6e777955f1632716661.png",
+    inStock: 0,
+    rating: 4,
+    fastDelivery: false,
   },
   {
     id: 7,
     tittle: "Rolls",
     cover:
       "https://b.zmtcdn.com/data/dish_images/c2f22c42f7ba90d81440a88449f4e5891634806087.png",
+    inStock: 0,
+    rating: 3,
+    fastDelivery: true,
   },
   {
     id: 8,
     tittle: "Dosa",
     cover:
       "https://b.zmtcdn.com/data/o2_assets/8dc39742916ddc369ebeb91928391b931632716660.png",
+    inStock: 7,
+    rating: 4,
+    fastDelivery: false,
   },
   {
     id: 9,
     tittle: "Paratha",
     cover:
       "https://b.zmtcdn.com/data/o2_assets/2b5a5b533473aada22015966f668e30e1633434990.png",
+    inStock: 0,
+    rating: 3,
+    fastDelivery: true,
   },
   {
     id: 10,
     tittle: "Noodles",
     cover:
       "https://b.zmtcdn.com/data/dish_images/91c554bcbbab049353a8808fc970e3b31615960315.png",
+    inStock: 7,
+    rating: 3,
+    fastDelivery: true,
   },
 ];
 export const TOP_BRAND = [
@@ -4095,3 +4122,41 @@ export const SWIGGY_IMG_CDN =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 export const SWIGGY_INDIVIDUAL_RES =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.952083&lng=77.7079919&restaurantId=";
+
+export const categories = [
+  {
+    id: 1,
+    name: "Chicken",
+    urlParamName: "chicken",
+  },
+  {
+    id: 2,
+    name: "Curry",
+    urlParamName: "curry",
+  },
+  {
+    id: 3,
+    name: "Rice",
+    urlParamName: "rice",
+  },
+  {
+    id: 4,
+    name: "Fish",
+    urlParamName: "fish",
+  },
+  {
+    id: 5,
+    name: "Fruits",
+    urlParamName: "fruits",
+  },
+  {
+    id: 6,
+    name: "IceCreams",
+    urlParamName: "iceCreams",
+  },
+  {
+    id: 7,
+    name: "Soft Drinks",
+    urlParamName: "softdrinks",
+  },
+];

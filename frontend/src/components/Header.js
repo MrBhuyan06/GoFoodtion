@@ -23,12 +23,14 @@ const Header = () => {
         user: providerData[0],
       });
       localStorage.setItem("user", JSON.stringify(providerData[0]));
+      console.log(providerData[0]);
     } else {
       setIsMenu(!isMenu);
     }
   };
 
   const logout = () => {
+    console.log("click");
     setIsMenu(false);
     localStorage.clear();
     dispatch({
@@ -56,20 +58,29 @@ const Header = () => {
               className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"
               to="/"
             >
-              <li>Home</li>
+              <li onClick={() => setIsMenu(false)}>Home</li>
             </Link>
             <Link to="/about">
-              <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+              <li
+                className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"
+                onClick={() => setIsMenu(false)}
+              >
                 About us
               </li>
             </Link>
             <Link to="/menu">
-              <li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
+              <li
+                className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer"
+                onClick={() => setIsMenu(false)}
+              >
                 Menu
               </li>
             </Link>
             <Link to="/carts" className="">
-              <li className="text-base flex items-center text-textColor  relative">
+              <li
+                className="text-base flex items-center text-textColor  relative"
+                onClick={() => setIsMenu(false)}
+              >
                 <MdShoppingCartCheckout className="text-textColor text-2xl hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer relative" />
                 <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-3 left-4">
                   <p className="text-xs text-white font-semibold r">2</p>
@@ -95,12 +106,18 @@ const Header = () => {
               >
                 {user && user.email === "abhisekhbhuyan0606@gmail.com" && (
                   <Link to={"/menu/createitem"}>
-                    <p className="px-4 py-2 flex  items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-base">
+                    <p
+                      className="px-4 py-2 flex  items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-base"
+                      onClick={() => setIsMenu(false)}
+                    >
                       New Items <MdAdd />
                     </p>
                   </Link>
                 )}
-                <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-base">
+                <p
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-base"
+                  onClick={logout}
+                >
                   Logout <MdLogout />
                 </p>
               </motion.div>
@@ -158,15 +175,18 @@ const Header = () => {
                   className="text-base px-4 py-2 hover:bg-slate-200 duration-100 transition-all ease-in-out cursor-pointer"
                   to="/"
                 >
-                  <li>Home</li>
+                  <li onClick={() => setIsMenu(false)}>Home</li>
                 </Link>
-                <Link to="/about">
+                <Link to="/about" onClick={() => setIsMenu(false)}>
                   <li className="text-base px-4 py-2 hover:bg-slate-200 duration-100 transition-all ease-in-out cursor-pointer">
                     About us
                   </li>
                 </Link>
                 <Link to="/menu">
-                  <li className="text-base px-4 py-2 hover:bg-slate-200 duration-100 transition-all ease-in-out cursor-pointer">
+                  <li
+                    className="text-base px-4 py-2 hover:bg-slate-200 duration-100 transition-all ease-in-out cursor-pointer"
+                    onClick={() => setIsMenu(false)}
+                  >
                     Menu
                   </li>
                 </Link>
