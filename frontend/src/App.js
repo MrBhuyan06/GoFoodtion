@@ -1,9 +1,11 @@
 import { Header, Fotter } from "./components";
 import { Outlet } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { StateProvider } from "./context/StateProvider.js";
+import { StateProvider, useStateValue } from "./context/StateProvider.js";
 import { initialState } from "./context/initalState.js";
 import reducer from "./context/reducers.js";
+import { getAllFoodItems } from "./utils/firebaseFunction.js";
+import { useEffect } from "react";
 
 const App = () => {
   return (

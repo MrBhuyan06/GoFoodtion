@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { saveItem } from "../utils/firebaseFunction.js";
 import {
@@ -18,6 +18,10 @@ import {
 } from "firebase/storage";
 import Loaders from "./Loaders.js";
 import { storage } from "../firebase.config.js";
+import { useStateValue } from "../context/StateProvider.js";
+import { getAllFoodItems } from "../utils/firebaseFunction.js";
+import { actionType } from "../context/reducers.js";
+
 const MenuCreateContainer = () => {
   const [tittle, setTittle] = useState("");
   const [calories, setCalories] = useState("");
@@ -28,6 +32,8 @@ const MenuCreateContainer = () => {
   const [imageAsset, setImageAsset] = useState(null);
   const [alterStatus, setalterStatus] = useState("danger");
   const [isLoading, setIsLoading] = useState(false);
+  const [{ foodItems }, dispatch] = useStateValue();
+
   const uploadImage = (e) => {
     setIsLoading(true);
     const imageFile = e.target.files[0];
@@ -101,8 +107,8 @@ const MenuCreateContainer = () => {
         saveItem(data);
         setIsLoading(false);
         setMsg("Data uploaded Successfully");
-        setalterStatus("success");
         clearData();
+        setalterStatus("success");
         setTimeout(() => {
           setfields(false);
         }, 4000);
@@ -117,6 +123,7 @@ const MenuCreateContainer = () => {
         setIsLoading(false);
       }, 4000);
     }
+    fetchData();
   };
 
   const clearData = () => {
@@ -125,6 +132,18 @@ const MenuCreateContainer = () => {
     setCategory("Select Category");
     setPrice("");
     setImageAsset(null);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    await getAllFoodItems().then((data) => {
+      dispatch({
+        type: actionType.SET_FOOD_ITEMS,
+        foodItems: data,
+      });
+    });
   };
 
   return (
