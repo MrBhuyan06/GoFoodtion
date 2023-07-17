@@ -12,6 +12,7 @@ const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const [{ user }, dispatch] = useStateValue();
+  console.log(user);
   const [isMenu, setIsMenu] = useState(false);
   const login = async () => {
     if (!user) {

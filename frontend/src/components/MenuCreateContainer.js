@@ -83,10 +83,17 @@ const MenuCreateContainer = () => {
       }, 4000);
     });
   };
+  const clearData = () => {
+    setTittle("");
+    setCalories("");
+    setCategory(null);
+    setPrice("");
+    setImageAsset(null);
+  };
   const saveDetails = () => {
     setIsLoading(true);
     try {
-      if (!tittle || !calories || !imageAsset || !categories) {
+      if (!tittle || !calories || !imageAsset || !category || !price) {
         setfields(true);
         setMsg("Required Fields must be filled");
         setalterStatus("danger");
@@ -124,14 +131,6 @@ const MenuCreateContainer = () => {
       }, 4000);
     }
     fetchData();
-  };
-
-  const clearData = () => {
-    setTittle("");
-    setCalories("");
-    setCategory("Select Category");
-    setPrice("");
-    setImageAsset(null);
   };
 
   useEffect(() => {
@@ -181,7 +180,7 @@ const MenuCreateContainer = () => {
             onChange={(e) => setCategory(e.target.value)}
             className="outline-none text-base w-full border-b-2 border-gray-200 p-2 rounded cursor-pointer text-headingColor"
           >
-            <option value="other" className=" bg-white">
+            <option selected value="other" className=" bg-white">
               Select Category
             </option>
             {categories &&

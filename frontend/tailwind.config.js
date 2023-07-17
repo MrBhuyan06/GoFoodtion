@@ -57,8 +57,12 @@ module.exports = {
         cartTotal: "#343739",
         bgcolorsecond: "#f8f8f8",
         white: "#ffffff",
+        rowBg: "rgba(255,131,0,0.1",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // ...
+    require("tailwind-scrollbar"),
+  ],
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Delivery from "../img/delivery.png";
 import Biriyani from "../img/biryani-2.jpg";
 import Burger from "../img/burger.jpg";
@@ -17,6 +17,9 @@ import RowContainer from "./RowContainer.js";
 
 const MenuContainer = () => {
   const [{ foodItems }, dispatch] = useStateValue();
+
+  const [scroll, setScroll] = useState(0);
+  useEffect(() => {});
 
   useEffect(() => {
     fetchData();
@@ -132,6 +135,7 @@ const MenuContainer = () => {
             <motion.div
               whileTap={{ scale: 0.75 }}
               className="w-8 h-8 rounded-lg bg-orange-300   hover:bg-orange-500 duration-100 transition-all ease-in-out hover:shadow-lg flex items-center justify-center cursor-pointer"
+              onClick={() => setScroll(-200)}
             >
               <MdChevronLeft className="text-white text-lg" />
             </motion.div>
@@ -139,12 +143,17 @@ const MenuContainer = () => {
             <motion.div
               whileTap={{ scale: 0.75 }}
               className="w-8 h-8 rounded-lg bg-orange-300  hover:bg-orange-500 duration-100 transition-all ease-in-out hover:shadow-lg flex items-center justify-center cursor-pointer"
+              onClick={() => setScroll(200)}
             >
               <MdChevronRight className=" text-white text-lg" />
             </motion.div>
           </div>
         </div>
-        <RowContainer flag={true} />
+        <RowContainer
+          scrollValue={scroll}
+          flag={true}
+          data={foodItems?.filter((n) => n.category === "fruits")}
+        />
       </section>
     </>
   );
