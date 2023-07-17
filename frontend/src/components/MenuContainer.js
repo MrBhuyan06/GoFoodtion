@@ -14,12 +14,12 @@ import { actionType } from "../context/reducers.js";
 import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer.js";
-
+import MenuCardContainer from "./MenuCardContainer.js";
 const MenuContainer = () => {
   const [{ foodItems }, dispatch] = useStateValue();
 
   const [scroll, setScroll] = useState(0);
-  useEffect(() => {});
+  useEffect(() => {}, [scroll]);
 
   useEffect(() => {
     fetchData();
@@ -135,7 +135,7 @@ const MenuContainer = () => {
             <motion.div
               whileTap={{ scale: 0.75 }}
               className="w-8 h-8 rounded-lg bg-orange-300   hover:bg-orange-500 duration-100 transition-all ease-in-out hover:shadow-lg flex items-center justify-center cursor-pointer"
-              onClick={() => setScroll(-200)}
+              onClick={() => setScroll(-300)}
             >
               <MdChevronLeft className="text-white text-lg" />
             </motion.div>
@@ -143,7 +143,7 @@ const MenuContainer = () => {
             <motion.div
               whileTap={{ scale: 0.75 }}
               className="w-8 h-8 rounded-lg bg-orange-300  hover:bg-orange-500 duration-100 transition-all ease-in-out hover:shadow-lg flex items-center justify-center cursor-pointer"
-              onClick={() => setScroll(200)}
+              onClick={() => setScroll(300)}
             >
               <MdChevronRight className=" text-white text-lg" />
             </motion.div>
@@ -155,6 +155,7 @@ const MenuContainer = () => {
           data={foodItems?.filter((n) => n.category === "fruits")}
         />
       </section>
+      <MenuCardContainer />
     </>
   );
 };

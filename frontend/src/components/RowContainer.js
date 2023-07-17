@@ -11,7 +11,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
   return (
     <div
       ref={rowContainer}
-      className={`w-full items-center flex gap-4  scroll-smooth  ${
+      className={`w-full items-center flex gap-4 scroll-smooth  ${
         flag
           ? "overflow-x-scroll scrollbar-none"
           : "overflow-x-hidden flex-wrap"
@@ -21,7 +21,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
         data.map((item) => (
           <div
             key={item.id}
-            className="w-300  min-w-[300px] md:w-340 md:min-w-[300px] h-auto bg-cardOverlay   border-2 drop-shadow-md rounded-lg p-2  my-12 backdrop:filter  transition-all ease-in-out duration-100  backdrop-blur-lg"
+            className="w-300  min-w-[300px] md:w-340 md:min-w-[300px] h-auto bg-cardOverlay   border-2 drop-shadow-md rounded-lg p-2  my-12 backdrop:filter flex flex-col items-center justify-center transition-all ease-in-out duration-100  backdrop-blur-lg"
           >
             <div className="w-full flex items-center justify-between">
               <motion.img
