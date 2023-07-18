@@ -12,7 +12,7 @@ import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 const CartContainer = () => {
-  const [{ user, cartShow }, dispatch] = useStateValue();
+  const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
   const showCart = () => {
     console.log("click");
     dispatch({
@@ -47,21 +47,20 @@ const CartContainer = () => {
         {/* Cart items Section */}
         <div className="w-full h-340 md:h-42 px-6 py-10 flex flex-col gap-3 overflow-y-scroll scrollbar-none">
           {/* Cart Items */}
-          {Array(5)
-            .fill()
-            .map((m) => {
+          {cartItems &&
+            cartItems.map((item) => {
               return (
                 <div className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2">
                   <img
-                    src="https://firebasestorage.googleapis.com/v0/b/gofoodtionrestaurent.appspot.com/o/Images%2F1689615467786-f10.png?alt=media&token=f3a33aa7-2873-4c59-af33-07c7e9f6b690"
+                    src={item.imageURL}
                     alt=""
                     className="w-20 h-20  max-w-[60px] rounded-full object-contain "
                   />
                   {/* Name sectionnqd */}
                   <div className="flex flex-col gap-2">
-                    <p className="text-base text-gray-100"> Watermelon</p>
+                    <p className="text-base text-gray-100"> {item.tittle}</p>
                     <p className="text-sm black text-gray-300 font-semibold">
-                      Rs 120
+                      {item.price}
                     </p>
                   </div>
                   {/* btn */}

@@ -13,6 +13,7 @@ const Header = () => {
   const provider = new GoogleAuthProvider();
   const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
   console.log(user);
+  console.log(typeof cartItems);
   const [isMenu, setIsMenu] = useState(false);
   const login = async () => {
     if (!user) {
@@ -96,7 +97,9 @@ const Header = () => {
               />
               {cartItems && cartItems.length > 0 && (
                 <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-3 left-4">
-                  <p className="text-xs text-white font-semibold r">2</p>
+                  <p className="text-xs text-white font-semibold r">
+                    {cartItems.length}
+                  </p>
                 </div>
               )}
             </li>

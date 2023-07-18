@@ -159,6 +159,7 @@ const MenuContainer = () => {
             data={foodItems?.filter((n) => n.category === "fruits")}
           />
         )}
+        <MenuCardContainer />
       </section>
       {cartShow && <CartContainer />}
     </>

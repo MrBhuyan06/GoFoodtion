@@ -34,5 +34,5 @@ export const fetchCart = function () {
       ? JSON.parse(localStorage.getItem("cartItems"))
       : localStorage.clear();
 
-  return cartInfo;
+  return cartInfo ? cartInfo : [];
 };
