@@ -15,6 +15,7 @@ import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer.js";
 import MenuCardContainer from "./MenuCardContainer.js";
+import CartContainer from "./CartContainer.js";
 const MenuContainer = () => {
   const [{ foodItems }, dispatch] = useStateValue();
 
@@ -149,13 +150,18 @@ const MenuContainer = () => {
             </motion.div>
           </div>
         </div>
-        <RowContainer
-          scrollValue={scroll}
-          flag={true}
-          data={foodItems?.filter((n) => n.category === "fruits")}
-        />
+        {!foodItems ? (
+          <h1>Loading Please Wait</h1>
+        ) : (
+          <RowContainer
+            scrollValue={scroll}
+            flag={true}
+            data={foodItems?.filter((n) => n.category === "fruits")}
+          />
+        )}
       </section>
       <MenuCardContainer />
+      <CartContainer />
     </>
   );
 };

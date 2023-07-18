@@ -14,22 +14,27 @@ const RowContainer = ({ flag, data, scrollValue }) => {
       className={`w-full items-center flex gap-4 scroll-smooth  ${
         flag
           ? "overflow-x-scroll scrollbar-none"
-          : "overflow-x-hidden flex-wrap"
+          : "overflow-x-hidden flex-wrap justify-center"
       } `}
     >
       {data &&
         data.map((item) => (
           <div
             key={item.id}
-            className="w-300  min-w-[300px] md:w-340 md:min-w-[300px] h-auto bg-cardOverlay   border-2 drop-shadow-md rounded-lg p-2  my-12 backdrop:filter flex flex-col items-center justify-center transition-all ease-in-out duration-100  backdrop-blur-lg"
+            className="w-275  h-[195px] min-w-[300px] md:w-340 md:min-w-[300px] bg-cardOverlay   border-2 drop-shadow-md rounded-lg p-2  my-12 backdrop:filter flex flex-col items-center justify-center transition-all ease-in-out duration-100  backdrop-blur-lg"
           >
             <div className="w-full flex items-center justify-between">
-              <motion.img
+              <motion.div
                 whileHover={{ scale: 1.2 }}
-                src={item.imageURL}
-                alt=""
-                className="w-40 -mt-8 drop-shadow-2xl"
-              />
+                className="w-32 h-32 -mt-8 drop-shadow-2xl "
+              >
+                <img
+                  src={item.imageURL}
+                  alt=""
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
+
               <motion.div
                 whileTap={{ scale: 0.5 }}
                 className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center cursor-pointer"
