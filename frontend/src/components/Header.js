@@ -11,7 +11,7 @@ import { actionType } from "../context/reducers.js";
 const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
-  const [{ user, cartShow }, dispatch] = useStateValue();
+  const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
   console.log(user);
   const [isMenu, setIsMenu] = useState(false);
   const login = async () => {
@@ -94,9 +94,11 @@ const Header = () => {
                 className="text-textColor text-2xl hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer relative"
                 onClick={showCart}
               />
-              <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-3 left-4">
-                <p className="text-xs text-white font-semibold r">2</p>
-              </div>
+              {cartItems && cartItems.length > 0 && (
+                <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-3 left-4">
+                  <p className="text-xs text-white font-semibold r">2</p>
+                </div>
+              )}
             </li>
           </motion.ul>
 
@@ -142,9 +144,11 @@ const Header = () => {
         <Link to="/carts" className="">
           <div className=" flex items-center text-base px-4 py-2 hover:bg-slate-200 duration-100 transition-all ease-in-out cursor-pointer relative">
             <MdShoppingCartCheckout className="text-textColor text-2xl hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer relative" />
-            <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-1 left-8">
-              <p className="text-xs text-white font-semibold r">2</p>
-            </div>
+            {cartItems && cartItems.length > 0 && (
+              <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-3 left-4">
+                <p className="text-xs text-white font-semibold r">2</p>
+              </div>
+            )}
           </div>
         </Link>
         <Link to={"/"} className=" flex items-center gap-2">
@@ -204,9 +208,11 @@ const Header = () => {
                 <Link to="/carts" className="">
                   <li className=" flex items-center text-base px-4 py-2 hover:bg-slate-200 duration-100 transition-all ease-in-out cursor-pointer relative">
                     <MdShoppingCartCheckout className="text-textColor text-2xl hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer relative" />
-                    <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-1 left-8">
-                      <p className="text-xs text-white font-semibold r">2</p>
-                    </div>
+                    {cartItems && cartItems.length > 0 && (
+                      <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-3 left-4">
+                        <p className="text-xs text-white font-semibold r">2</p>
+                      </div>
+                    )}
                   </li>
                 </Link>
               </ul>
