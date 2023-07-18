@@ -17,7 +17,7 @@ import RowContainer from "./RowContainer.js";
 import MenuCardContainer from "./MenuCardContainer.js";
 import CartContainer from "./CartContainer.js";
 const MenuContainer = () => {
-  const [{ foodItems }, dispatch] = useStateValue();
+  const [{ foodItems, cartShow }, dispatch] = useStateValue();
 
   const [scroll, setScroll] = useState(0);
   useEffect(() => {}, [scroll]);
@@ -160,8 +160,7 @@ const MenuContainer = () => {
           />
         )}
       </section>
-      <MenuCardContainer />
-      <CartContainer />
+      {cartShow && <CartContainer />}
     </>
   );
 };

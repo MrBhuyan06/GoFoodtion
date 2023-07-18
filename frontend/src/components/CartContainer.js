@@ -1,4 +1,6 @@
 import React from "react";
+import { useStateValue } from "../context/StateProvider.js";
+import { actionType } from "../context/reducers.js";
 import {
   MdOutlineKeyboardBackspace,
   MdRefresh,
@@ -10,11 +12,27 @@ import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 const CartContainer = () => {
+  const [{ user, cartShow }, dispatch] = useStateValue();
+  const showCart = () => {
+    console.log("click");
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
+    });
+  };
   return (
-    <div className=" fixed top-0 right-0 w-full md:w-375 h-[100vh] z-[101]   drop-shadow-md flex flex-col bg-white ">
+    <motion.div
+      initial={{ opacity: 0, x: 200 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 200 }}
+      className=" fixed top-0 right-0 w-full md:w-375 h-[100vh] z-[101]   drop-shadow-md flex flex-col bg-white "
+    >
       <div className="w-full flex items-center justify-between p-4 cursor-pointer bg-gradient-to-tr  from-orange-300 to-orange-600">
         <motion.div whileTap={{ scale: 0.75 }}>
-          <MdOutlineKeyboardBackspace className="text-3xl text-textColor " />
+          <MdOutlineKeyboardBackspace
+            onClick={showCart}
+            className="text-3xl text-textColor "
+          />
         </motion.div>
         <p className="text-textColor text-lg font-semibold">Cart</p>
         <motion.p
@@ -83,13 +101,13 @@ const CartContainer = () => {
           </div>
           <motion.button
             whileTap={{ scale: 0.75 }}
-            className="bg-gradient-to-tr from-orange-400 to-orange-600 w-full p-2 rounded-full text-gray-500 text-lg my-2 hover:shadow-lg  transition-all duration-100 ease-out"
+            className="bg-gradient-to-tr from-orange-400 to-orange-600 w-full p-2 rounded-full text-gray-500 text-lg my-2 hover:shadow-lg   duration-100 ease-out"
           >
             Check Out
           </motion.button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

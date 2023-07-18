@@ -1,9 +1,11 @@
-import { fetchUser } from "../utils/helper.js";
+import { fetchCart, fetchUser } from "../utils/helper.js";
 
 const userInfo = fetchUser();
+const cartInfo = fetchCart();
 
 export const initialState = {
   user: userInfo,
   foodItems: null,
   cartShow: false,
+  cartItems: cartInfo,
 };

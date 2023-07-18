@@ -28,3 +28,11 @@ export const fetchUser = function () {
 
   return userInfo;
 };
+export const fetchCart = function () {
+  const cartInfo =
+    localStorage.getItem("cartItems") !== "undefine"
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : localStorage.clear();
+
+  return cartInfo;
+};

@@ -11,7 +11,7 @@ import { actionType } from "../context/reducers.js";
 const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, cartShow }, dispatch] = useStateValue();
   console.log(user);
   const [isMenu, setIsMenu] = useState(false);
   const login = async () => {
@@ -37,6 +37,14 @@ const Header = () => {
     dispatch({
       type: actionType.SET_USER,
       user: null,
+    });
+  };
+
+  const showCart = () => {
+    console.log("click");
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
     });
   };
 
@@ -77,17 +85,19 @@ const Header = () => {
                 Menu
               </li>
             </Link>
-            <Link to="/carts" className="">
-              <li
-                className="text-base flex items-center text-textColor  relative"
-                onClick={() => setIsMenu(false)}
-              >
-                <MdShoppingCartCheckout className="text-textColor text-2xl hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer relative" />
-                <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-3 left-4">
-                  <p className="text-xs text-white font-semibold r">2</p>
-                </div>
-              </li>
-            </Link>
+
+            <li
+              className="text-base flex items-center text-textColor  relative"
+              onClick={() => setIsMenu(false)}
+            >
+              <MdShoppingCartCheckout
+                className="text-textColor text-2xl hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer relative"
+                onClick={showCart}
+              />
+              <div className="w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center  absolute -top-3 left-4">
+                <p className="text-xs text-white font-semibold r">2</p>
+              </div>
+            </li>
           </motion.ul>
 
           <div className="relative">
