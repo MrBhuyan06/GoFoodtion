@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useStateValue } from "../context/StateProvider.js";
 import { actionType } from "../context/reducers.js";
 import {
@@ -13,6 +13,24 @@ import { motion } from "framer-motion";
 
 const CartContainer = () => {
   const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
+  const [total, setTotal] = useState();
+  // Sum Total
+  const [deliveryCharge, setDeliveryCharge] = useState(0);
+  const [sumTotal, setSumTotal] = useState(0);
+
+  useEffect(() => {
+    console.log("calls");
+    setTotal(cartItems.reduce((acc, curr) => acc + Number(curr.price), 0));
+  }, [cartItems]);
+  useEffect(() => {
+    console.log("calls");
+
+    setDeliveryCharge((total / 100) * 5);
+  }, [total]);
+  useEffect(() => {
+    setSumTotal(total + deliveryCharge);
+  }, [total, deliveryCharge]);
+
   const showCart = () => {
     console.log("click");
     dispatch({
@@ -87,16 +105,18 @@ const CartContainer = () => {
         <div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2">
           <div className="w-full flex items-center justify-between">
             <p className="text-gray-100 text-lg">Sub Total</p>
-            <p className="text-gray-100 text-lg">Rs 300</p>
+            <p className="text-gray-100 text-lg">{total}</p>
           </div>
           <div className="w-full flex items-center justify-between">
             <p className="text-gray-100 text-lg">Delivery</p>
-            <p className="text-gray-100 text-lg">Rs 300</p>
+            <p className="text-gray-100 text-lg">{deliveryCharge}</p>
           </div>
           <div className="w-full border-b border-gray-600 my-2"></div>
           <div className="w-full flex items-center justify-between">
             <p className="text-gray-200 text-xl font font-semibold">Total</p>
-            <p className="text-gray-200 text-xl font font-semibold">Rs 4009</p>
+            <p className="text-gray-200 text-xl font font-semibold">
+              Rs {sumTotal}
+            </p>
           </div>
           <motion.button
             whileTap={{ scale: 0.75 }}
