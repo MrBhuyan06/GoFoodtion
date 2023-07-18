@@ -40,9 +40,9 @@ const RowContainer = ({ flag, data, scrollValue }) => {
             <div className="w-full flex flex-col gap-4 items-center justify-center">
               <p className="text-textColor font-semibold mt-1 text-base md:text-lg">
                 {item.tittle}
-                <p className="mt-1 text-sm text-gray-500">
+                <span className="mt-1 text-sm text-gray-500">
                   {item.calories} Colaries
-                </p>
+                </span>
               </p>
               <div className="flex items-center gap-8">
                 <p className="text-lg text-headingColor font-semibold">

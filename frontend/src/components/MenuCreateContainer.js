@@ -180,7 +180,7 @@ const MenuCreateContainer = () => {
             onChange={(e) => setCategory(e.target.value)}
             className="outline-none text-base w-full border-b-2 border-gray-200 p-2 rounded cursor-pointer text-headingColor"
           >
-            <option selected value="other" className=" bg-white">
+            <option value="other" className=" bg-white">
               Select Category
             </option>
             {categories &&
