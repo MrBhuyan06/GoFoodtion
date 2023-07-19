@@ -12,22 +12,31 @@ import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 import EmtyCart from "../img/emptyCart.svg";
+import CartItems from "./CartItems.js";
 
 const CartContainer = () => {
   const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
   const [total, setTotal] = useState();
+  const [flag, setFlag] = useState(1);
   // Sum Total
   const [deliveryCharge, setDeliveryCharge] = useState(0);
   const [sumTotal, setSumTotal] = useState(0);
 
   useEffect(() => {
     console.log("calls");
-    setTotal(cartItems.reduce((acc, curr) => acc + Number(curr.price), 0));
-  }, [cartItems]);
+    console.log(cartItems);
+    // console.log(cartItems[0]?.qty);
+    setTotal(
+      cartItems.reduce(
+        (acc, curr) => acc + Number(curr.qty) * Number(curr.price),
+        0
+      )
+    );
+  }, [cartItems, flag]);
   useEffect(() => {
     console.log("calls");
 
-    setDeliveryCharge((total / 100) * 5);
+    setDeliveryCharge(Math.trunc((total / 100) * 5));
   }, [total]);
   useEffect(() => {
     setSumTotal(total + deliveryCharge);
@@ -38,6 +47,12 @@ const CartContainer = () => {
     dispatch({
       type: actionType.SET_CART_SHOW,
       cartShow: !cartShow,
+    });
+  };
+  const clearCart = () => {
+    dispatch({
+      type: actionType.SET_CARTITEMS,
+      cartItems: [],
     });
   };
   return (
@@ -57,6 +72,7 @@ const CartContainer = () => {
         <p className="text-textColor text-lg font-semibold">Cart</p>
         <motion.p
           whileTap={{ scale: 0.75 }}
+          onClick={clearCart}
           className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md duration-100  cursor-pointer text-textColor text-base"
         >
           Clear <MdRefresh />
@@ -71,35 +87,12 @@ const CartContainer = () => {
             {cartItems &&
               cartItems.map((item) => {
                 return (
-                  <div className="w-full p-1 px-2 rounded-lg bg-cartItem flex items-center gap-2">
-                    <img
-                      src={item.imageURL}
-                      alt=""
-                      className="w-20 h-20  max-w-[60px] rounded-full object-contain "
-                    />
-                    {/* Name sectionnqd */}
-                    <div className="flex flex-col gap-2">
-                      <p className="text-base text-gray-100"> {item.tittle}</p>
-                      <p className="text-sm black text-gray-300 font-semibold">
-                        {item.price}
-                      </p>
-                    </div>
-                    {/* btn */}
-                    <div className="group flex items-center gap-2 ml-auto cursor-pointer">
-                      <motion.div whileTap={{ scale: 0.75 }}>
-                        {/* <MdPlue /> */}
-
-                        <AiFillMinusCircle className="text-orange-400 text-xl" />
-                      </motion.div>
-                      <p className="w-5 h-5 rounded-sm bg-cartBg text-gray-100 flex items-center justify-center">
-                        {item.qty}
-                      </p>
-                      <motion.div whileTap={{ scale: 0.75 }}>
-                        {/* <MdMinus /> */}
-                        <AiFillPlusCircle className=" text-orange-400 text-xl" />
-                      </motion.div>
-                    </div>
-                  </div>
+                  <CartItems
+                    key={item.id}
+                    item={item}
+                    flag={flag}
+                    setFlag={setFlag}
+                  />
                 );
               })}
           </div>
