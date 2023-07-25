@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { SWIGGY_IMG_CDN } from "../utils/constant.js";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice.js";
+import { addItem, removeItem } from "../utils/cartSlice.js";
 const RestaurentMenuItems = ({ data }) => {
   //   console.log(price);
   const dispatch = useDispatch();
-  const [itemCount, setitemCount] = useState(0);
+  let [itemCount, setitemCount] = useState(0);
   const handleAddItem = (data) => {
     dispatch(addItem(data));
     setitemCount(itemCount + 1);
+  };
+  const handleRemoveItem = (data) => {
+    let updateCount;
+    dispatch(removeItem(data.id));
+    updateCount = itemCount > 0 ? itemCount - 1 : 0;
+    setitemCount(updateCount);
   };
   // console.log(name);
   return (
@@ -30,7 +36,7 @@ const RestaurentMenuItems = ({ data }) => {
           alt=""
         />
         <div className="flex justify-evenly items-center w-[100px] h-[34px] mt-2.5 text-gray-count outline-none border bg-white border-gray">
-          <button> - </button>
+          <button onClick={() => handleRemoveItem(data)}> - </button>
           <span>{itemCount}</span>
           <button onClick={() => handleAddItem(data)}>+</button>
         </div>

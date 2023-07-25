@@ -4123,6 +4123,8 @@ export const SWIGGY_IMG_CDN =
 export const SWIGGY_INDIVIDUAL_RES =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.952083&lng=77.7079919&restaurantId=";
 
+export const CART_FALLBACK_IMG =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0";
 export const categories = [
   {
     id: 1,
