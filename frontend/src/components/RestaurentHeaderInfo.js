@@ -10,7 +10,7 @@ const RestaurentHeaderInfo = ({
   costForTwoMessage,
 }) => {
   return (
-    <div className="w-full h-60 bg-blue-950  rounded-md -ml-2">
+    <div className="w-full h-60 bg-gradient-to-tr from-orange-300 to-orange-600   rounded-md -ml-2">
       <div className="w-1/2 flex gap-2 items-center  mx-auto h-60 bg-blue">
         <img
           className="w-[255px] h-[165px] rounded-md  "

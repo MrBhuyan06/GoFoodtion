@@ -1,7 +1,7 @@
 import React from "react";
 import RestaurentNestedItemCategory from "./RestaurentNestedItemCategory.js";
 import RestaurentItemCategories from "./RestaurentItemCategories.js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ItemQuantity from "./ItemQuantity.js";
 import FallBackCart from "./FallBackCart.js";
 import { motion } from "framer-motion";
@@ -11,10 +11,18 @@ import {
   MdPlue,
   MdMinus,
 } from "react-icons/md";
-
+import { clearItem } from "../utils/cartSlice.js";
+import { Link } from "react-router-dom";
+import useItemTotal from "../utils/useItemTotal.js";
+import { MdShoppingCartCheckout, MdAdd, MdLogout } from "react-icons/md";
 const RestaurentDetailsMain = ({ menu }) => {
   console.log(menu);
   const cartitems = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
+  const handleClear = () => {
+    dispatch(clearItem());
+  };
+  const getItemTotal = useItemTotal();
   return (
     <div className=" w-full relative   bg-primary  mx-auto border-6 flex gap-2">
       <div className="card-conatiner w-[70%]">
@@ -37,14 +45,15 @@ const RestaurentDetailsMain = ({ menu }) => {
               <span className="text-xl text-white w-full    ">Cart</span>
               <motion.p
                 whileTap={{ scale: 0.75 }}
-                // onClick={clearCart}
+                onClick={handleClear}
                 className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md duration-100  cursor-pointer text-textColor text-base"
               >
                 Clear <MdRefresh />
               </motion.p>
             </div>
-            <p className="text-gray-200 ">
+            <p className="text-gray-200 flex items-center gap-2 ">
               {Object.values(cartitems).length} items
+              <MdShoppingCartCheckout className="text-orange-500 text-lg" />
             </p>
             {Object.values(cartitems).map((item) => {
               return (
@@ -60,6 +69,25 @@ const RestaurentDetailsMain = ({ menu }) => {
                 </div>
               );
             })}
+            <div className="border border-gray my-4"></div>
+            <div className="flex justify-between  mt-4">
+              <p className="text-lg font-bold text-orange-500 ">Sub Total</p>
+              <p className="text-neutral-300 text-lg">
+                {"₹ " + getItemTotal()}
+              </p>
+            </div>
+            <motion.div
+              whileTap={{ scale: 0.75 }}
+              className="flex justify-center mt-10 bg-gradient-to-tr from-orange-400 to-orange-600 w-full rounded-sm"
+            >
+              <Link className="" to="/cart">
+                {" "}
+                <button className="bg-yellow px-4 py-2 text-blue-dark hover:drop-shadow-lg backdrop-blur">
+                  {" "}
+                  CHECKOUT
+                </button>
+              </Link>
+            </motion.div>
           </div>
         ) : (
           <div className="card-container w-full bg-gradient-to-tr from-orange-400 to-orange-600 sticky top-0  ">
