@@ -25,7 +25,10 @@ const RestaurentItemCategories = ({ itemCategory }) => {
       {isVisible && (
         <div className="flex flex-col  justify-evenly">
           {itemCategory.itemCards.map((item) => (
-            <RestaurentMenuItems key={item.card.info.id} {...item.card.info} />
+            <RestaurentMenuItems
+              key={item.card.info.id}
+              data={item.card.info}
+            />
           ))}
         </div>
       )}
