@@ -15,11 +15,11 @@ const settings = {
 
 const BrandSection = () => {
   return (
-    <div className="container  rounded-md mt-4 mx-auto p-16    ">
+    <div className="container  rounded-md mt-4 mx-auto p-2 md:p-16    ">
       <div className="text-headingColor text-3xl text-bold mb-8 ml-4 ">
         Top Brands for You
       </div>
-      <div className=" w-full h-full  px-20  py-2">
+      <div className=" w-full h-full  md:px-20  py-2">
         <Slider {...settings} className="">
           {TOP_BRAND.map((item, i) => {
             return <BrandItems {...item} key={i} />;

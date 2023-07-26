@@ -49,7 +49,7 @@ const Body = () => {
       {/* <Outlet /> */}
       <DeliveryCollection />
       <BrandSection />
-      <div className="search-filter-components">
+      <div className="w-full search-filter-components">
         <FilterComponets
           placeHolder={"Search Restaurent"}
           handleChange={handleChange}
@@ -57,7 +57,7 @@ const Body = () => {
           restaurentList={allRestaurent}
           updateFilterRestaurent={updateFilterRestaurent}
         />
-        <main className="w-screen border-4 px-16 p-6 ">
+        <main className="  px-16 p-6 ">
           <div className="container border-4 min-h-screen flex flex-wrap justify-items-center items-center justify-center gap-4 ">
             {filterRestaurent.length === 0 ? (
               <h1 className=" text-headingColor  self-start">

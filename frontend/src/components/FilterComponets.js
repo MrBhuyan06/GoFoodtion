@@ -14,7 +14,7 @@ const FilterComponets = (props) => {
   } = props;
   console.log(restaurentList);
   return (
-    <div className=" container mx-auto mt-10 border-4 min-h-[60px]  px-20 flex justify-center items-center">
+    <div className=" w-full md:container mx-auto mt-10 bg-gradient-to-tr from-orange-400 to-orange-600 rounded-md  min-h-[60px]  px-20 flex justify-center items-center">
       {/* <SearchBtn /> */}
       <SearchBar
         placeHolder={placeHolder}
@@ -27,14 +27,14 @@ const FilterComponets = (props) => {
       {/* <Button name="Rating 4.0 +" 
       /> */}
       <button
-        className=" ml-8 btn btn-primary bg-orange-400 px-2 py-1  rounded-lg hover:bg-orange-300 transition-all ease-in-out cursor-pointer text-headingColor text-md font-semibold"
+        className=" btn btn-primary w-1/12 bg-orange-400 px-4 rounded-lg hover:bg-orange-300 transition-all ease-in-out cursor-pointer text-headingColor text-sm font-semibold"
         onClick={() => {
           const ratingResult = ratingRestaurent(restaurentList);
           console.log(ratingResult);
           updateFilterRestaurent(ratingResult);
         }}
       >
-        Rating 4.0 +
+        Rating 4.0
       </button>
     </div>
   );

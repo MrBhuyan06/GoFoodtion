@@ -19,7 +19,7 @@ const SearchBar = (props) => {
   // console.log(restaurentList);
   // const { optionid } = useParams();
   return (
-    <div className="search-bar flex gap-2 ">
+    <div className="search-bar w-full flex gap-2 ">
       <div className="search flex  items-center bg-primary rounded-lg  border-2 w-300 h-8 px-2">
         <input
           className="bg-transparent  border-0 w-full  "

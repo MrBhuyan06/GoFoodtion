@@ -16,11 +16,11 @@ const settings = {
 
 const DeliveryCollection = () => {
   return (
-    <div className="container rounded-md mt-4 bg-primary  mx-auto p-16    ">
+    <div className="container rounded-md mt-4 p-2 bg-primary  mx-auto md:p-16    ">
       <div className="text-headingColor text-3xl text-bold mb-4 ml-4 ">
         Eat What Make You Happy
       </div>
-      <div className=" w-full h-full  px-20  py-2">
+      <div className=" w-full h-full   md:px-20  py-2">
         <Slider {...settings} className="">
           {DELIVERY_ITEMS.map((item, i) => {
             return <DeliveryItems {...item} key={i} />;
