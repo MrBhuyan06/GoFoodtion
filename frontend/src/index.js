@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client.js";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import PaymentPages from "./components/PaymentPages.js";
+import ErrorComponents from "./components/ErrorComponents.js";
 import {
   Carts,
   Menu,
@@ -23,6 +24,7 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorComponents />,
     children: [
       {
         path: "/",
