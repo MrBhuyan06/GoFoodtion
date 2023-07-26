@@ -16,6 +16,8 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer.js";
 import MenuCardContainer from "./MenuCardContainer.js";
 import CartContainer from "./CartContainer.js";
+import { Link } from "react-router-dom";
+
 const MenuContainer = () => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
 
@@ -56,17 +58,19 @@ const MenuContainer = () => {
             </span>
           </p>
           <p className="text-base text-textColor lg:w-[80%] text-center md:text-left">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus
-            fugit est maxime in minima omnis vitae facere dolores voluptas ut
-            necessitatibus temporibus, quae quaerat qui error, amet modi fugiat
-            alias.'
+            Join us at GoFoodtion, and let our passion for food enchant your
+            senses, leaving you with a delightful symphony of flavors and an
+            unforgettable dining experience. Come, savor the magic of GoFoodtion
+            and let us redefine your culinary journey!
           </p>
-          <button
-            type="button"
-            className="bg-gradient-to-br  text-headingColor text-lg from-orange-400 t0 bg-orange-500  w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100"
-          >
-            Order Now
-          </button>
+          <Link to="/menu">
+            <button
+              type="button"
+              className="bg-gradient-to-br  text-headingColor text-lg from-orange-400 t0 bg-orange-500  w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100"
+            >
+              Order Now
+            </button>
+          </Link>
         </div>
         <div className="p-4 flex-2 grid grid-cols-3 grid-rows-[120px] gap-2  ">
           <div
