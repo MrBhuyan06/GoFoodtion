@@ -74,9 +74,9 @@ const TapFeature = () => {
 
       <TapOption />
 
-      <section className="top-0 right-0  z-50 w-screen  bg-primary  p-6 px-16 ">
+      <section className="top-0 right-0  z-50 w-full   md:p-6 md:px-16 ">
         {/* Dining Collection */}
-        <div className=" w-full h-full  px-20  py-2">
+        <div className=" w-full h-full md:px-20  md:py-2">
           <Slider {...settings} className="">
             {COLLECTIONS_NIGHT.map((item, i) => {
               return <CollectionCards {...item} key={i} />;
@@ -117,9 +117,9 @@ const TapFeature = () => {
 
       <TapOption />
 
-      <section className="top-0 right-0  z-50 w-screen  bg-primary  p-6 px-16 ">
+      <section className="top-0 right-0  z-50 w-screen  bg-primary  md:p-6 md:px-16 ">
         {/* Dining Collection */}
-        <div className=" w-full h-full  px-20  py-2">
+        <div className=" w-full h-full  md:px-20  md:py-2">
           <Slider {...settings} className="">
             {COLLECTIONS_DINING.map((item, i) => {
               return <CollectionCards {...item} key={i} />;

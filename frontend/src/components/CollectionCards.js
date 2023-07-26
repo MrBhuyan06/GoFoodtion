@@ -3,8 +3,8 @@ import React from "react";
 const CollectionCards = ({ cover, title, places }) => {
   return (
     <div
-      className=" collection-card flex  flex-col  justify-end gap-2   bg-black bg-blend-difference rounded 
-      max-w-[260px]  mb-4 ] min-h-[320px] relative overflow-hidden bg-cover "
+      className=" collection-card h-[320px] flex  flex-col  justify-end gap-2 ml-4 md:ml-0  bg-black bg-blend-difference rounded 
+      max-w-[260px]   mb-4  md:min-h-[320px] relative overflow-hidden bg-cover "
       style={{
         // bg-cover bg-center object-cover
         backgroundImage: `url(${cover})`,

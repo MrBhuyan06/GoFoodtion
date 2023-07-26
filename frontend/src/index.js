@@ -1,6 +1,6 @@
 import "./index.css";
 import App from "./App.js";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client.js";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
@@ -8,7 +8,6 @@ import PaymentPages from "./components/PaymentPages.js";
 import ErrorComponents from "./components/ErrorComponents.js";
 import {
   Carts,
-  Menu,
   About,
   Body,
   NightLife,
@@ -18,8 +17,9 @@ import {
   MenuCreateContainer,
   MenuContainer,
   RestaurentDetailsPage,
+  Menu,
 } from "./components";
-
+const menu = lazy(() => import("./components/Menu.js"));
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -44,7 +44,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/menu",
-        element: <Menu />,
+        element: (
+          <Suspense fallback={<h1 className="mt-24">Loading....</h1>}>
+            <Menu />
+          </Suspense>
+        ),
         children: [
           {
             path: "createitem",

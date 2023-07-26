@@ -20,7 +20,7 @@ const DeliveryCollection = () => {
       <div className="text-headingColor text-3xl text-bold mb-4 ml-4 ">
         Eat What Make You Happy
       </div>
-      <div className=" w-full h-full   md:px-20  py-2">
+      <div className=" w-full h-full   md:px-20  md:py-2">
         <Slider {...settings} className="">
           {DELIVERY_ITEMS.map((item, i) => {
             return <DeliveryItems {...item} key={i} />;
