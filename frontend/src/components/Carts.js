@@ -12,6 +12,13 @@ import { clearItem } from "../utils/cartSlice.js";
 import { isEmptyObject } from "../utils/helper.js";
 import { USERS_ADDRESS_LIST } from "../utils/constant.js";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  MdOutlineKeyboardBackspace,
+  MdRefresh,
+  MdPlue,
+  MdMinus,
+} from "react-icons/md";
 const Carts = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
@@ -39,24 +46,27 @@ const Carts = () => {
     }
   };
   return Object.values(cartItems).length > 0 ? (
-    <div className="flex flex-col md:flex-row min-h-[450px]   mt-28 mx-6 p-20 justify-between sm:p-0 ">
-      <div className=" w-full lg:w-[60%] md:w-[60%] xl:w-[60%]">
+    <div className="flex flex-col md:flex-row    mt-24 mx-6 p-2 md:p-10 justify-between ">
+      <div className="  w-full lg:w-[60%] md:w-[60%] xl:w-[60%]">
         <FallBackAccount />
       </div>
 
-      <div className="bg-white drop-shadow-md h-[400px] flex-2 p-6 w-auto">
-        <div className="flex justify-between items-center mb-2">
+      <div className="bg-gradient-to-tr rounded-md  from-orange-400 to-orange-600 drop-shadow-md  flex-2 p-6 w-auto">
+        <div className="flex text-white bg-cartItem px-2 rounded-lg  justify-between items-center mb-2">
           <h1 className="text-lg mt-2.5 text-title font-bold ">Cart Items</h1>
-          <button
-            className="w-[80px] h-[22px] rounded-md bg-red text-white text-sm"
-            onClick={() => handleClearCart()}
-          >
-            Clear Cart
-          </button>
+          <div className="flex justify-center items-center ">
+            <motion.p
+              whileTap={{ scale: 0.75 }}
+              onClick={handleClearCart}
+              className="flex items-center gap-2 p-1 px-2 my-2 bg-gray-100 rounded-md hover:shadow-md duration-100  cursor-pointer text-textColor text-base"
+            >
+              Clear <MdRefresh />
+            </motion.p>
+          </div>
         </div>
         {Object.values(cartItems).map((item) => {
           return (
-            <div className="my-3">
+            <div className="my-3 bg-cartItem p-4 rounded-md text-white">
               <div className="flex items-center mt-2">
                 <p className="px-2 w-48 text-sm">{item.name}</p>
                 <div className="px-5">
@@ -80,7 +90,7 @@ const Carts = () => {
           <>
             <div className="border border-black my-2"></div>
             {!isEmptyObject(address) && (
-              <div className="flex flex-col justify-between my-2">
+              <div className="flex flex-col bg-cartItem text-white p-2 rounded-md justify-between my-2">
                 <h1 className="text-lg mt-2.5 text-title font-bold ">
                   Delivery Address
                 </h1>
@@ -93,7 +103,7 @@ const Carts = () => {
               </div>
             )}
             {!isEmptyObject(payment) && (
-              <div className="flex flex-col justify-between mb-2">
+              <div className="flex bg-cartItem text-white p-2 rounded-md flex-col justify-between mb-2">
                 <h1 className="text-lg mt-2.5 text-title font-bold ">
                   Payment
                 </h1>
@@ -105,14 +115,17 @@ const Carts = () => {
                 </p>
               </div>
             )}
-            <div className="flex justify-center my-10">
+            <motion.div
+              whileTap={{ scale: 0.75 }}
+              className="flex bg-cartItem text-white rounded-md justify-center my-10"
+            >
               <Link to="/payment">
                 <button className="bg-yellow px-4 py-2 text-blue-dark hover:drop-shadow-lg backdrop-blur">
                   {" "}
                   PROCEED TO PAYMENT
                 </button>
               </Link>
-            </div>
+            </motion.div>
           </>
         )}
       </div>

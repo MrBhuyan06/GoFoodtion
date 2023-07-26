@@ -26,13 +26,21 @@ const Body = () => {
   }, []);
   async function getRestaurent() {
     const data = await fetch(SWIGGY_RES_API);
+    console.log(data);
     const resData = await data.json();
-    console.log(resData);
-    setAllRestaurent(resData?.data?.cards[2]?.data?.data?.cards);
-    setFilterRestaurent(resData?.data?.cards[2]?.data?.data?.cards);
-  }
 
-  return allRestaurent.length === 0 ? (
+    // console.log(
+    //   resData?.data?.cards[5]?.card?.card.gridElements.infoWithStyle.restaurants
+    // );
+    setAllRestaurent(
+      resData?.data?.cards[5]?.card?.card.gridElements.infoWithStyle.restaurants
+    );
+    setFilterRestaurent(
+      resData?.data?.cards[5]?.card?.card.gridElements.infoWithStyle.restaurants
+    );
+  }
+  console.log(allRestaurent);
+  return !allRestaurent ? (
     <h1>Loading....</h1>
   ) : (
     <div className="text-blue-500 mt-28 w-screen border p-8   ">
@@ -59,11 +67,10 @@ const Body = () => {
               filterRestaurent.map((res, i) => {
                 console.log(res);
                 return (
-                  <Link to={`restaurent/${res.data.id}`} key={res.data.id}>
-                    <RestaurentCard {...res?.data} />
+                  <Link to={`restaurent/${res.info.id}`} key={res.info.id}>
+                    <RestaurentCard {...res?.info} />
                   </Link>
                 );
-                return;
               })
             )}
           </div>

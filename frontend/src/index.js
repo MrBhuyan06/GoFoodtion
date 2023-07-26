@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom/client.js";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
-
+import PaymentPages from "./components/PaymentPages.js";
 import {
   Carts,
   Menu,
@@ -35,6 +35,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Carts />,
+      },
+      {
+        path: "/payment",
+        element: <PaymentPages />,
       },
       {
         path: "/menu",

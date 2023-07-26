@@ -28,9 +28,9 @@ const FallBackAccount = () => {
   };
 
   return (
-    <div className="flex flex-row  border-2 bg-gradient-to-tr from-orange-400 to-orange-600  ">
+    <div className=" rounded-lg drop-shadow-md shadow-xl bg-gradient-to-tr p-3 from-orange-400 to-orange-600  ">
       {user === null ? (
-        <div className="flex flex-col w-full md:w-1/2 items-center justify-start  mx-4 gap-4 ">
+        <div className="flex flex-col w-full md:w-1/2 items-center justify-start  mx-4 gap-4 p-4 ">
           <div>
             <h1 className="text-xl text-title mb-2 font-bold ">Account</h1>
             <p className="text-black text-lg">
@@ -39,7 +39,7 @@ const FallBackAccount = () => {
             </p>
           </div>
 
-          <div className="">
+          <div className="mr-auto">
             <h1 className="text-base text-bio font-bold ">
               Click on Login button{" "}
             </h1>
@@ -53,10 +53,10 @@ const FallBackAccount = () => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col justify-start mx-4 gap-4">
+        <div className="flex flex-col rounded-md bg-cartBg justify-start mx-4 p-4 gap-4">
           <div>
-            <div className="bg-white shadow-md p-7 flex flex-col ">
-              <h1 className="text-xl mt-2.5 text-title font-bold ">
+            <div className="shadow-md bg-cartTotal p-7 flex flex-col ">
+              <h1 className=" text-white text-xl mt-2.5 text-title font-bold ">
                 Delivery Address
               </h1>
               <div className="flex flex-wrap justify-around items-center w-[100%]">
@@ -67,13 +67,13 @@ const FallBackAccount = () => {
             </div>
           </div>
 
-          <div className="bg-white shadow-md p-7">
-            <h1 className="text-xl mt-2.5 text-title font-bold ">
+          <div className=" shadow-md bg-cartTotal rounded-lg p-7">
+            <h1 className="text-xl text-white mt-2.5 text-title font-bold ">
               Payment Method
             </h1>
             <div className="flex flex-wrap justify-around items-center w-[100%]">
               {PAYMENT_METHODS.map((payment) => {
-                return <PaymentDetails {...payment} key={payment.id} />;
+                return <PaymentDetails payment={payment} key={payment.id} />;
               })}
             </div>
           </div>

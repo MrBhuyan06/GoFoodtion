@@ -4180,12 +4180,12 @@ export const USERS_ADDRESS_LIST = [
   {
     id: "01",
     addressType: "Home",
-    addressDescription: "12, D block , Indira nagar",
+    addressDescription: "BBSR, Sundarpada Odisha",
   },
 
   {
     id: "02",
     addressType: "Work",
-    addressDescription: "RMZ, Koramangala",
+    addressDescription: "MARATHALI,Bengaluru",
   },
 ];
