@@ -4162,3 +4162,30 @@ export const categories = [
     urlParamName: "softdrinks",
   },
 ];
+
+export const PAYMENT_METHODS = [
+  {
+    id: "01",
+    paymentType: "Pay Online",
+    paymentMethod: ["UPI / Card Payment"],
+  },
+
+  {
+    id: "02",
+    paymentType: "Pay Offline",
+    paymentMethod: ["Cash On Delivery"],
+  },
+];
+export const USERS_ADDRESS_LIST = [
+  {
+    id: "01",
+    addressType: "Home",
+    addressDescription: "12, D block , Indira nagar",
+  },
+
+  {
+    id: "02",
+    addressType: "Work",
+    addressDescription: "RMZ, Koramangala",
+  },
+];

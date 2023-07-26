@@ -8,7 +8,7 @@ const FallBackCart = ({ text, btnText }) => {
       <h2 className="px-14 pt-8 my-4">{text}</h2>
       {btnText && (
         <Link to="/">
-          <button className="bg-yellow px-4 py-2 text-blue-dark hover:drop-shadow-lg backdrop-blur">
+          <button className="bg-yellow px-4 py-2 text-blue-dark hover:drop-shadow-lg backdrop-blur border bg-black rounded-md text-white ">
             {btnText}
           </button>
         </Link>
