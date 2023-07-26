@@ -5,9 +5,10 @@ import { StateProvider, useStateValue } from "./context/StateProvider.js";
 import { initialState } from "./context/initalState.js";
 import reducer from "./context/reducers.js";
 import { getAllFoodItems } from "./utils/firebaseFunction.js";
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { Provider } from "react-redux";
 import appStore from "./utils/Store.js";
+
 const App = () => {
   return (
     <Provider store={appStore}>
