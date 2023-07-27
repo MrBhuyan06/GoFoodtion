@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import TapOption from "./TapOption.js";
+import { sortingResZom } from "../utils/helper.js";
 import {
   COLLECTIONS_DINING,
   COLLECTIONS_NIGHT,
@@ -65,7 +66,7 @@ const TapFeature = () => {
   // console.log(RESTAURENT_DINING);
   console.log("render");
   console.log(seacrhTxt);
-  console.log(allResTaurentDinnig);
+  // console.log(allResTaurentDinnig);
   return optionid.includes("Nightlife") ? (
     <div>
       <h2 className="text-headingColor text-5xl  font-extrabold text-center container  mb-2 mx-auto mt-28">
@@ -95,9 +96,12 @@ const TapFeature = () => {
         />
         <main className="w-screen border-4 px-16 p-6 ">
           <div className="container border-4 min-h-screen flex flex-wrap justify-items-center items-center justify-center gap-4 ">
+            {filterResTaurentDinning}
             {filterResTaurentNight.length === 0 ? (
               <h1 className=" text-headingColor  self-start">
-                No Restaurent Found
+                <p className="text-orange-400 bg-black p-4 rounded">
+                  NO RESTAURENT FOUND
+                </p>
               </h1>
             ) : (
               filterResTaurentNight.map((res, i) => {
@@ -135,15 +139,32 @@ const TapFeature = () => {
           restaurentList={allResTaurentDinnig}
           updateFilterRestaurent={updateFilterRestaurent}
         />
+        {/* {console.log(allResTaurentDinnig)} */}
+        {/* <button
+          className=" btn btn-primary w-1/12 bg-orange-400 px-4 rounded-lg hover:bg-orange-300 transition-all ease-in-out cursor-pointer text-headingColor text-sm font-semibold"
+          onClick={() => {
+            console.log(allResTaurentDinnig);
+            const lowTohighRes = sortingResZom(
+              allResTaurentDinnig,
+              "lowtohigh"
+            );
+            console.log(lowTohighRes);
+            SetFilterRestaurentDinning(lowTohighRes);
+          }}
+        >
+          Low To High
+        </button> */}
         <main className="w-screen border-4 px-16 p-6 ">
           <div className="container border-4 min-h-screen flex flex-wrap justify-items-center items-center justify-center gap-4 ">
             {filterResTaurentDinning.length === 0 ? (
               <h1 className=" text-headingColor  self-start">
-                No Restaurent Found
+                <p className="text-orange-400 bg-black p-4 rounded">
+                  NO RESTAURENT FOUND
+                </p>
               </h1>
             ) : (
               filterResTaurentDinning.map((res, i) => {
-                console.log(res);
+                // console.log(res);
                 return <FeatureCard {...res?.info} key={res.info.resId} />;
               })
             )}

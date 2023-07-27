@@ -41,3 +41,45 @@ export const fetchCart = function () {
 export const isEmptyObject = (obj) => {
   return Object.keys(obj).length === 0;
 };
+const changeToNumberPrice = (priceString) => {
+  const stringWithNumbers = priceString;
+  const numericValues = stringWithNumbers.match(/\d+(,\d+)?/g).map((numStr) => {
+    // Remove commas from four-digit numbers
+
+    return numStr.includes(",")
+      ? parseInt(numStr.replace(/,/g, ""), 10)
+      : parseInt(numStr, 10);
+  });
+  return Number(numericValues);
+};
+//sorting res
+export const sortingRes = (res, work) => {
+  let sorts = "lowtohigh";
+  console.log(res);
+  const sortResData = res;
+  const sortRes = sortResData.sort((a, b) =>
+    sorts === work
+      ? changeToNumberPrice(a.info.textcostForTwo) -
+        changeToNumberPrice(b.info.costForTwo)
+      : changeToNumberPrice(b.info.costForTwo) -
+        changeToNumberPrice(a.info.costForTwo)
+  );
+  // console.log(res);
+
+  return sortRes;
+};
+export const sortingResZom = (res, work) => {
+  let sorts = "lowtohigh";
+  console.log(res);
+  const sortResData = res;
+  const sortRes = sortResData.sort((a, b) =>
+    sorts === work
+      ? changeToNumberPrice(a.info?.cft?.text) -
+        changeToNumberPrice(b.info?.cft?.text)
+      : changeToNumberPrice(b.info?.cft?.text) -
+        changeToNumberPrice(a.info?.cft?.text)
+  );
+  // console.log(res);
+  console.log(sortRes);
+  return sortRes;
+};

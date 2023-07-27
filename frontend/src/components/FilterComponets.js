@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, SearchBar } from "./index.js";
 import { ratingRestaurent } from "../utils/helper.js";
-
+import { sortingRes, sortingResZom } from "../utils/helper.js";
 const FilterComponets = (props) => {
   // console.log(props.SetAllRestaurentDinning);
-  console.log(props);
+  // console.log(props);
   const {
     handleChange,
     placeHolder,
@@ -12,7 +12,7 @@ const FilterComponets = (props) => {
     restaurentList,
     updateFilterRestaurent,
   } = props;
-  console.log(restaurentList);
+  // console.log(restaurentList);
   return (
     <div className=" w-full md:container mx-auto mt-10 bg-gradient-to-tr from-orange-400 to-orange-600 rounded-md  min-h-[60px]  px-20 flex justify-center items-center">
       {/* <SearchBtn /> */}
@@ -30,7 +30,7 @@ const FilterComponets = (props) => {
         className=" btn btn-primary w-1/12 bg-orange-400 px-4 rounded-lg hover:bg-orange-300 transition-all ease-in-out cursor-pointer text-headingColor text-sm font-semibold"
         onClick={() => {
           const ratingResult = ratingRestaurent(restaurentList);
-          console.log(ratingResult);
+          // console.log(ratingResult);
           updateFilterRestaurent(ratingResult);
         }}
       >

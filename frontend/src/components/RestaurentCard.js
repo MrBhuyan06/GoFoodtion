@@ -6,7 +6,7 @@ const RestaurentCard = ({
   cuisines,
   avgRating,
   cloudinaryImageId,
-  costForTwoString,
+  costForTwo,
   area,
 }) => {
   return (
@@ -34,7 +34,7 @@ const RestaurentCard = ({
       <div className=" mt-2 px-2 flex justify-between">
         <p className="text-lighttextGray text-md text-ellipsis">{area}</p>
         <p className="text-lighttextGray 2 text-md w-1/2 font-semibold text-ellipsis">
-          {costForTwoString}
+          {costForTwo}
         </p>
       </div>
     </div>

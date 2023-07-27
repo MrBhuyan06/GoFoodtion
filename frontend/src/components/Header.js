@@ -57,6 +57,15 @@ const Header = () => {
           <img src={LOGO} alt="log0" className="w-10 object-cover" />
           <p className="text-headingColor text-xl font-bold">Go Foodition</p>
         </Link>
+        <div>
+          <p>
+            {user ? (
+              <span className="text-lg text-orange-400 font-bold">{`Welcome ${user?.displayName}`}</span>
+            ) : (
+              <span className="text-lg text-orange-400 font-bold">{`Please Login To your Account`}</span>
+            )}
+          </p>
+        </div>
         <div className="flex  gap-8 items-center">
           <motion.ul
             initial={{ opacity: 0, x: 200 }}
@@ -108,8 +117,8 @@ const Header = () => {
           <div className="relative">
             <motion.img
               whileTap={{ scale: 0.6 }}
-              src={userprofile}
-              className="w-10 min-w-[40px] min-h-40px drop-shadow-xl cursor-pointer"
+              src={user ? user?.photoURL : userprofile}
+              className="w-10 min-w-[40px] min-h-40px drop-shadow-xl rounded-full cursor-pointer"
               alt="userprofile"
               onClick={login}
             />

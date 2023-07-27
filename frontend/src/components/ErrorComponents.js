@@ -2,13 +2,13 @@ import React from "react";
 import ERROR from "../img/404 Error.jpg";
 import { useRouteError } from "react-router-dom";
 const ErrorComponents = () => {
-  console.log(useRouteError());
+  // console.log(useRouteError());
   const {
     data,
     error: { message },
     statusText,
   } = useRouteError();
-  console.log(data, message, statusText);
+  // console.log(data, message, statusText);
   return (
     <div className="w-full h-full bg-green mt-20">
       <div className="container mx-auto">

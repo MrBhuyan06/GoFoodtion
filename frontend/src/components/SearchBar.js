@@ -23,19 +23,26 @@ const SearchBar = (props) => {
       <div className="search flex  items-center bg-primary rounded-lg  border-2 w-300 h-8 px-2">
         <input
           className="bg-transparent  border-0 w-full  "
-          type="search"
+          type="text"
           // value={props.value}
           placeholder={placeHolder}
           onChange={(e) => {
             //   props.handleChange(e.target.value);
             handleChange(e.target.value);
             console.log("press");
+
             if (optionid) {
               console.log("press");
+              if (!e.target.value) {
+                updateFilterRestaurent([]);
+              }
               const searchResault = searchRestaurent(value, restaurentList);
               console.log(searchResault);
               updateFilterRestaurent(searchResault);
             } else {
+              if (!e.target.value) {
+                updateFilterRestaurent([]);
+              }
               const searchResault = searchRestaurentSWiggy(
                 value,
                 restaurentList

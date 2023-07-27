@@ -4118,7 +4118,10 @@ export const RESTAURENT_NIGHTLIFE = [
 // export const SWIGGY_RES_API =
 //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.952083&lng=77.7079919&page_type=DESKTOP_WEB_LISTING";
 export const SWIGGY_RES_API =
-  "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.952083&lng=77.7079919&page_type=DESKTOP_WEB_LISTING";
+  "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.952083&lng=77.7079919&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+// https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.952083&lng=77.7079919&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
+// export const SWIGGY_RES_API =
+//   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.952083&lng=77.7079919&page_type=DESKTOP_WEB_LISTING";
 
 export const SWIGGY_IMG_CDN =
   "https://corsproxy.io/?https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
@@ -4191,3 +4194,7 @@ export const USERS_ADDRESS_LIST = [
     addressDescription: "MARATHALI,Bengaluru",
   },
 ];
+
+/* Shimmer - Number of cards & items to be displayed */
+export const SHIMMER_RES_CARDS_COUNT = 8;
+export const SHIMMER_MENU_ITEMS_COUNT = 4;
