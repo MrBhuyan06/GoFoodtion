@@ -5,7 +5,7 @@ const Fotter = () => {
   const [{ user }] = useStateValue();
 
   return (
-    <div className="mt-4 w-full border-2 h-20 bg-gradient-to-tr from-orange-500 to-orange-500">
+    <div className="mt-4 w-full border-2 h-20 bg-gradient-to-tr from-orange-500 to-orange-500 ">
       <div className="container flex items-center h-full justify-around">
         {user ? (
           <span className="text-lg text-black font-bold">{`Welcome ${user?.displayName}`}</span>

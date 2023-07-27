@@ -52,11 +52,11 @@ const Body = () => {
 
   return allRestaurent?.length === 0 ? (
     // <h1>Loading....</h1>
-    <div className="w-full h-screenmt-24">
+    <div className="w-full  mt-24">
       <Shimmer />
     </div>
   ) : (
-    <div className="text-blue-500 mt-28 w-screen border p-8   ">
+    <div className="text-blue-500 mt-28 w-screen h-auto  md:h-auto border p-8   ">
       <TapOption />
 
       {/* <Outlet /> */}

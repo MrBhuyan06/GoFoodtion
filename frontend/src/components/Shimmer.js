@@ -60,7 +60,7 @@ export const MenuShimmer = () => {
 };
 const Shimmer = () => {
   return (
-    <div className="flex flex-wrap gap-5 mt-24 h-screen justify-evenly">
+    <div className="flex flex-wrap gap-5 mt-24  justify-evenly">
       {Array.from({ length: SHIMMER_RES_CARDS_COUNT }).map((ele, index) => {
         return <CardShimmer key={index} />;
       })}
