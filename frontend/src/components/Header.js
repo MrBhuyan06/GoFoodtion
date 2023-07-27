@@ -153,7 +153,7 @@ const Header = () => {
 
       {/* Mobile */}
       <div className="flex  md:hidden w-full h-full  items-center justify-between">
-        <Link to="/carts" className="">
+        <Link to="/cart" className="">
           <div className=" flex items-center text-base px-4 py-2 hover:bg-slate-200 duration-100 transition-all ease-in-out cursor-pointer relative">
             <MdShoppingCartCheckout className="text-textColor text-2xl hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer relative" />
             {cartItems && cartItems.length > 0 && (

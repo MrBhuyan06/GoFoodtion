@@ -31,26 +31,27 @@ const SearchBar = (props) => {
             handleChange(e.target.value);
             console.log("press");
 
-            if (optionid) {
-              console.log("press");
-              if (!e.target.value) {
-                updateFilterRestaurent([]);
-              }
-              const searchResault = searchRestaurent(value, restaurentList);
-              console.log(searchResault);
-              updateFilterRestaurent(searchResault);
-            } else {
-              if (!e.target.value) {
-                updateFilterRestaurent([]);
-              }
-              const searchResault = searchRestaurentSWiggy(
-                value,
-                restaurentList
-              );
-              console.log(searchResault);
-              console.log("enter");
-              updateFilterRestaurent(searchResault);
-            }
+            //   if (optionid) {
+            //     console.log("press");
+            //     if (!e.target.value) {
+            //       updateFilterRestaurent([]);
+            //     }
+            //     const searchResault = searchRestaurent(value, restaurentList);
+            //     console.log(searchResault);
+            //     updateFilterRestaurent(searchResault);
+            //   } else {
+            //     if (!e.target.value) {
+            //       updateFilterRestaurent([]);
+            //     }
+            //     const searchResault = searchRestaurentSWiggy(
+            //       value,
+            //       restaurentList
+            //     );
+            //     console.log(searchResault);
+            //     console.log("enter");
+            //     updateFilterRestaurent(searchResault);
+            //   }
+            // }}
           }}
           value={value}
         />

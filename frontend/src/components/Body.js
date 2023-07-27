@@ -46,11 +46,11 @@ const Body = () => {
   console.log(allRestaurent);
 
   // Don't render component (Early return)
-  // if (!allRestaurants) {
-  //   return null;
-  // }
+  if (!allRestaurent) {
+    return null;
+  }
 
-  return allRestaurent.length === 0 ? (
+  return allRestaurent?.length === 0 ? (
     // <h1>Loading....</h1>
     <div className="w-full h-screenmt-24">
       <Shimmer />
