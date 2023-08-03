@@ -65,6 +65,9 @@ const Header = () => {
               <span className="text-lg text-orange-400 font-bold">{`Please Login To your Account`}</span>
             )}
           </p>
+          <p className="text-lg text-orange-400 font-bold">
+            This project is developed for Educational purpose
+          </p>
         </div>
         <div className="flex  gap-8 items-center">
           <motion.ul
