@@ -27,7 +27,7 @@ const Body = () => {
     getRestaurent();
   }, []);
   async function getRestaurent() {
-    const data = await fetch(SWIGGY_RES_API);
+    const data = await fetch(`https://thingproxy.freeboard.io/fetch/${SWIGGY_RES_API}`);
     console.log(data);
     const resData = await data.json();
     console.log(resData);

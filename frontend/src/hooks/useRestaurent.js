@@ -11,8 +11,11 @@ const useRestaurent = (resId) => {
   const getRestaurentInfo = async () => {
     try {
       //Fetch The menuitems
-      const response = await fetch(SWIGGY_INDIVIDUAL_RES + resId);
-      console.log("res",response);
+      const response = await fetch(
+        `https://thingproxy.freeboard.io/fetch/${SWIGGY_INDIVIDUAL_RES + resId}`
+      );
+
+      console.log("res", response);
       const res_data = await response.json();
       console.log(res_data);
       const menuItemsList =
