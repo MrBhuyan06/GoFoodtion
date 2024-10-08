@@ -7,7 +7,7 @@ import { MenuShimmer } from "./Shimmer.js";
 const RestaurentDetailPage = () => {
   const { resId } = useParams();
   const restaurentMenu = useRestaurent(resId);
-  console.log(restaurentMenu);
+  console.log("res menu",restaurentMenu);
   // const { info, menu } = restaurentMenu;
   // console.log(info, menu);
   return !restaurentMenu ? (

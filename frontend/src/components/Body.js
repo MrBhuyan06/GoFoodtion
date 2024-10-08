@@ -28,27 +28,27 @@ const Body = () => {
   }, []);
   async function getRestaurent() {
     const data = await fetch(SWIGGY_RES_API);
-    // console.log(data);
+    console.log(data);
     const resData = await data.json();
     console.log(resData);
     // console.log(
     //   resData?.data?.cards[5]?.card?.card.gridElements.infoWithStyle.restaurants
     // );
     setAllRestaurent(
-      resData?.data?.cards[5]?.card?.card.gridElements?.infoWithStyle
+      resData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilterRestaurent(
-      resData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+      resData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   }
   console.log(allRestaurent);
 
   // Don't render component (Early return)
-  if (!allRestaurent) {
-    return null;
-  }
+  // if (!allRestaurent) {
+  //   return null;
+  // }
 
   return allRestaurent?.length === 0 ? (
     // <h1>Loading....</h1>

@@ -65,8 +65,9 @@ const Header = () => {
               <span className="text-lg text-orange-400 font-bold">{`Please Login To your Account`}</span>
             )}
           </p>
-          <p className="text-lg text-orange-400 font-bold">
-            This project is developed for Educational purpose
+          <p className="text-xs text-orange-400 font-bold">
+            This project is developed for Educational purpose, we are using
+            production Api , please refrsh the place to view Restaurant List.
           </p>
         </div>
         <div className="flex  gap-8 items-center">

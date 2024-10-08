@@ -12,11 +12,11 @@ const useRestaurent = (resId) => {
     try {
       //Fetch The menuitems
       const response = await fetch(SWIGGY_INDIVIDUAL_RES + resId);
-      console.log(response);
+      console.log("res",response);
       const res_data = await response.json();
       console.log(res_data);
       const menuItemsList =
-        res_data?.data?.cards[2]["groupedCard"].cardGroupMap?.REGULAR?.cards;
+        res_data?.data?.cards[4]["groupedCard"].cardGroupMap?.REGULAR?.cards;
       const itemCategory =
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
       const NestedItemCategory =
@@ -31,7 +31,7 @@ const useRestaurent = (resId) => {
       });
 
       const modifiedData = {
-        info: res_data.data.cards[0].card.card.info,
+        info: res_data.data.cards[2].card.card.info,
         menu: menu.filter((value) => value !== undefined),
       };
       setRestaurent(modifiedData);
